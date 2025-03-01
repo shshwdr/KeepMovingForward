@@ -11,10 +11,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Interactable
+  - Dog
+  - Ground
+  - Wall
   - 
   - 
   - 
@@ -40,4 +40,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Wall
+    uniqueID: 3594585429
+    locked: 0
+  - name: Item
+    uniqueID: 448656939
+    locked: 0
+  - name: Character
+    uniqueID: 2230219819
+    locked: 0
+  - name: Dog
+    uniqueID: 4263551829
+    locked: 0
+  - name: Ghost
+    uniqueID: 230200655
     locked: 0

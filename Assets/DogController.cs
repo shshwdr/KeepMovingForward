@@ -90,14 +90,10 @@ public class DogController : MonoBehaviour
             if (hit != null)
             {
                 // 如果检测到可拾取物品，则调用其 PickUp 方法
-                PickupItem item = hit.GetComponent<PickupItem>();
+                Interactable item = hit.GetComponent<Interactable>();
                 if (item != null)
                 {
-                    item.transform.parent = transform;
-                    item.transform.position = mouse.transform.position;
-                    item.GetComponent<Rigidbody2D>().isKinematic = true;
-                    item.GetComponent<Collider2D>().enabled = false;
-                    item.PickUp();
+                    item.DogInteract(this);
                 }
             }
         }

@@ -6,6 +6,8 @@ public class Interactable : MonoBehaviour
 {
     public float interactDistance = 2f; // Max distance for interaction
     private Transform player; // Reference to the player
+
+    public string name;
     
     void Start()
     {
@@ -31,8 +33,24 @@ public class Interactable : MonoBehaviour
 
     public virtual void Interact()
     {
+        if (name == "ball")
+        {
+            
+            GetComponent<Rigidbody2D>().isKinematic = false;
+        }
         Debug.Log("Interacted with: " + gameObject.name);
 
-        GetComponent<Rigidbody2D>().isKinematic = false;
+    }
+
+    public void DogInteract(DogController dog)
+    { 
+        if (name == "ball")
+        {
+            
+            transform.parent = dog.transform;
+            transform.position = dog.transform.position;
+            GetComponent<Rigidbody2D>().isKinematic = true;
+            GetComponentInChildren<Collider2D>().enabled = false;
+        }
     }
 }
