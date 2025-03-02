@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     DialogueBubble dialogue;
 
+    private Interactable currentOver;
+
     private void Awake()
     {
         dialogue = GetComponentInChildren<DialogueBubble>();
@@ -34,6 +36,36 @@ public class PlayerController : MonoBehaviour
         else if (velocity.x < 0 && facingRight)
             Flip();
         lastPosition = transform.position;
+
+        {
+            
+            targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(targetPosition, Vector2.zero);
+            Interactable over;
+            if (hit.collider != null && ((1 << hit.collider.gameObject.layer) & interactableLayer) != 0)
+            {
+                over = hit.collider.GetComponentInParent<Interactable>();
+            }
+            else
+            {
+                over = null;
+            }
+
+            if (over != currentOver)
+            {
+                if (currentOver != null && currentOver.outline != null)
+                {
+                    
+                    currentOver.outline.SetActive(false);
+                }
+                currentOver = over;
+                if (over != null && over.outline != null)
+                {
+                    over.outline.SetActive(true);
+                }
+            }
+        }
+        
         // Update target position based on mouse input
         if (Input.GetMouseButton(0)) // Left-click to move
         {

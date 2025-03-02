@@ -104,6 +104,10 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[5].y
       value: -1.15
       objectReference: {fileID: 0}
+    - target: {fileID: 4227467595857139385, guid: b926e00d4e938ba40988496d3993b920, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6699207507295009324, guid: b926e00d4e938ba40988496d3993b920, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -135,6 +139,10 @@ PrefabInstance:
     - target: {fileID: 8553799962517342777, guid: b926e00d4e938ba40988496d3993b920, type: 3}
       propertyPath: name
       value: door
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553799962517342777, guid: b926e00d4e938ba40988496d3993b920, type: 3}
+      propertyPath: outline
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

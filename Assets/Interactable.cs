@@ -11,7 +11,7 @@ public class Interactable : MonoBehaviour
     public string actionName;
     public string commentName;
     public SpriteRenderer sprite;
-
+    public GameObject outline;
     public int sortLayer;
     public int sortOrder;
     
