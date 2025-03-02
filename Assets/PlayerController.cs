@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
         {
             
-            targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(targetPosition, Vector2.zero);
             Interactable over;
             if (hit.collider != null && ((1 << hit.collider.gameObject.layer) & interactableLayer) != 0)
