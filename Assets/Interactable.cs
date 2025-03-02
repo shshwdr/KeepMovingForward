@@ -43,7 +43,7 @@ public class Interactable : MonoBehaviour
 
     public virtual void Interact()
     {
-        if (name == "ball")
+        if (actionName == "ball")
         {
             
             GetComponent<Rigidbody2D>().isKinematic = false;
@@ -52,21 +52,50 @@ public class Interactable : MonoBehaviour
 
     }
 
-    public void DogInteract(DogController dog)
-    { 
-        if (name == "ball")
+    public void DogInteract(DogClickController dog)
+    {
+        switch (actionName)
         {
-            transform.parent = dog.transform;
-            transform.position = dog.transform.position;
-            GetComponent<Rigidbody2D>().isKinematic = true;
-            GetComponentInChildren<Collider2D>().enabled = false;
-            sprite.sortingLayerName = "Dog";
-            sprite.sortingOrder = 1;
+            case "ball":
+                
+                if (dog.holdingItem)
+                {
+                    dog.holdingItem.DogDrop(dog);
+                }
+            
+            
+                transform.parent = dog.transform;
+                transform.position = dog.transform.position;
+                GetComponent<Rigidbody2D>().isKinematic = true;
+                GetComponentInChildren<Collider2D>().enabled = false;
+                sprite.sortingLayerName = "Dog";
+                sprite.sortingOrder = 1;
+                dog.holdingItem = this;
+                break;
+            case "human":
+                if (dog.holdingItem && dog.holdingItem.name == "correctCD")
+                {
+                    dog.holdingItem.transform.position = transform.position;
+                    dog.holdingItem.transform.parent = transform;
+                    if (GetComponent<HumanRequest>())
+                    {
+                        GetComponent<HumanRequest>().finishRequest();
+                    }
+                    
+                    dog.holdingItem = null;
+                }
+                break;
         }
+
     }
 
-    public void DogDrop()
+    public void DogDrop(DogClickController dog)
     {
-        
+        GetComponent<Rigidbody2D>().isKinematic = false;
+        GetComponentInChildren<Collider2D>().enabled = true;
+        sprite.sortingLayerID = sortLayer;
+        sprite.sortingOrder = sortOrder;
+        transform.parent = null;
+        dog.holdingItem = null;
     }
 }

@@ -1,7 +1,7 @@
 using Unity.Mathematics;
 using UnityEngine;
 
-public class MouseMovement : MonoBehaviour
+public class DogClickController : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public LayerMask groundLayer;          // 地面层
@@ -13,14 +13,14 @@ public class MouseMovement : MonoBehaviour
     private Interactable targetItem;
     private int currentLayer = 0;
     private int targetLayer = 0;
-    DogController dog;
     private Transform targetDoor = null;
     private Collider2D collider;
     private bool facingRight = true;
+
+    public Interactable holdingItem;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        dog = GetComponent<DogController>();
         collider = GetComponentInChildren<Collider2D>();
     }
 
@@ -128,7 +128,7 @@ public class MouseMovement : MonoBehaviour
                     //if(targetItem.collider.bounds.Intersects(collider.bounds))
                     {
                         //isMoving = false; 
-                        targetItem.DogInteract(dog);
+                        targetItem.DogInteract(this);
                         targetItem = null;
                     }
                 }
