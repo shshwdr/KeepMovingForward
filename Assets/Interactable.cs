@@ -75,14 +75,19 @@ public class Interactable : MonoBehaviour
             case "human":
                 if (dog.holdingItem && dog.holdingItem.name == "correctCD")
                 {
-                    dog.holdingItem.transform.position = transform.position;
-                    dog.holdingItem.transform.parent = transform;
+                    dog.holdingItem.gameObject.SetActive(false);
+                    //dog.holdingItem.transform.position = transform.position;
+                    //dog.holdingItem.transform.parent = transform;
                     if (GetComponent<HumanRequest>())
                     {
                         GetComponent<HumanRequest>().finishRequest();
                     }
                     
                     dog.holdingItem = null;
+                }
+                else
+                {
+                    GetComponent<HumanRequest>().wrongDeliver();
                 }
                 break;
         }

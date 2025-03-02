@@ -19,8 +19,13 @@ public class PlayerController : MonoBehaviour
     private Vector3 lastPosition;
     private bool facingRight = true;
 
-    public CanvasGroup dialogue;
-    private Sequence dialogueDotween;
+    DialogueBubble dialogue;
+
+    private void Awake()
+    {
+        dialogue = GetComponentInChildren<DialogueBubble>();
+    }
+
     void Update()
     {
         var velocity = transform.position - lastPosition;
@@ -85,28 +90,8 @@ public class PlayerController : MonoBehaviour
                 {
                     targetItem.Interact();
 
-                    if (targetItem.commentName != "" &&
-                        CSVLoader.Instance.dialogueIndex.ContainsKey(targetItem.commentName))
-                    {
-                        if (dialogueDotween != null && dialogueDotween.IsActive())
-                            dialogueDotween.Kill();
-                        
-                        
-                        dialogueDotween = DOTween.Sequence();
-                        dialogueDotween.Append(dialogue.DOFade(1f, 0.5f));
-                        dialogueDotween.AppendInterval(5);
-                        dialogueDotween.Append(dialogue.DOFade(0f, 0.5f));
-                        var texts = CSVLoader.Instance.DialogueInfoMap[targetItem.commentName];
-                        var index = CSVLoader.Instance.dialogueIndex[targetItem.commentName];
-                        
-                        dialogue.GetComponentInChildren<TMP_Text>().text = texts[index].text;
-                        index++;
-                        if (index >= texts.Count)
-                        {
-                            index = 0;
-                        }
-                        CSVLoader.Instance.dialogueIndex[targetItem.commentName] = index;
-                    }
+                    
+                        dialogue.Show(targetItem.commentName);
                     
                     targetItem = null;
                 }
