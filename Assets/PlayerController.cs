@@ -1,4 +1,6 @@
 using System;
+using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,10 +12,15 @@ public class PlayerController : MonoBehaviour
     private Vector2 targetPosition;
     private bool isMoving = false;
 
+    public Transform characterRenderer;
+
     private Interactable targetItem;
 
     private Vector3 lastPosition;
     private bool facingRight = true;
+
+    public CanvasGroup dialogue;
+    private Sequence dialogueDotween;
     void Update()
     {
         var velocity = transform.position - lastPosition;
@@ -58,9 +65,9 @@ public class PlayerController : MonoBehaviour
     void Flip()
     {
         facingRight = !facingRight;
-        Vector3 scale = transform.localScale;
+        Vector3 scale = characterRenderer.localScale;
         scale.x *= -1;
-        transform.localScale = scale;
+        characterRenderer.localScale = scale;
     }
     private void FixedUpdate()
     {
@@ -77,6 +84,30 @@ public class PlayerController : MonoBehaviour
                 if (targetItem != null)
                 {
                     targetItem.Interact();
+
+                    if (targetItem.commentName != "" &&
+                        CSVLoader.Instance.dialogueIndex.ContainsKey(targetItem.commentName))
+                    {
+                        if (dialogueDotween != null && dialogueDotween.IsActive())
+                            dialogueDotween.Kill();
+                        
+                        
+                        dialogueDotween = DOTween.Sequence();
+                        dialogueDotween.Append(dialogue.DOFade(1f, 0.5f));
+                        dialogueDotween.AppendInterval(5);
+                        dialogueDotween.Append(dialogue.DOFade(0f, 0.5f));
+                        var texts = CSVLoader.Instance.DialogueInfoMap[targetItem.commentName];
+                        var index = CSVLoader.Instance.dialogueIndex[targetItem.commentName];
+                        
+                        dialogue.GetComponentInChildren<TMP_Text>().text = texts[index].text;
+                        index++;
+                        if (index >= texts.Count)
+                        {
+                            index = 0;
+                        }
+                        CSVLoader.Instance.dialogueIndex[targetItem.commentName] = index;
+                    }
+                    
                     targetItem = null;
                 }
             }

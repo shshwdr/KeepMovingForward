@@ -307,7 +307,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactDistance: 2
-  name: 
+  collider: {fileID: 0}
+  name: ball
+  commentName: 
+  sprite: {fileID: 6699207507295009324}
+  sortLayer: 0
+  sortOrder: 0
 --- !u!50 &2242409216371731413
 Rigidbody2D:
   serializedVersion: 4

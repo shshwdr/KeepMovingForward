@@ -8,6 +8,8 @@ public class Interactable : MonoBehaviour
     private Transform player; // Reference to the player
     public Collider2D collider;
     public string name;
+    public string actionName;
+    public string commentName;
     public SpriteRenderer sprite;
 
     public int sortLayer;
