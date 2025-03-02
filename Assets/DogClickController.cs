@@ -15,18 +15,19 @@ public class MouseMovement : MonoBehaviour
     private int targetLayer = 0;
     DogController dog;
     private Transform targetDoor = null;
-    
+    private Collider2D collider;
     private bool facingRight = true;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         dog = GetComponent<DogController>();
+        collider = GetComponentInChildren<Collider2D>();
     }
 
     void Update()
     {
         // 鼠标左键点击检测
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButton(1))
         {
             // 获取鼠标点击的世界坐标（z设为0）
             Vector3 clickWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -55,7 +56,18 @@ public class MouseMovement : MonoBehaviour
                     needCheckGround = false;
                     targetLayer = hit.collider.GetComponent<Ground>().layer;
                     //return;
+                    targetItem = null;
                 }
+                else
+                {
+                    
+                    targetItem = null;
+                }
+            }
+            else
+            {
+                
+                targetItem = null;
             }
 
             if (needCheckGround)
@@ -96,14 +108,15 @@ public class MouseMovement : MonoBehaviour
             if (currentLayer != targetLayer)
             {
                 targetPos = SceneManager.Instance.doors[currentLayer].transform.position;
-                targetPos.y = this.transform.position.y;
             }
+            
+            targetPos.y = this.transform.position.y;
             // 使用 MoveTowards 平滑移动到目标位置
             Vector2 newPos = Vector2.MoveTowards(rb.position, targetPos, moveSpeed * Time.fixedDeltaTime);
             rb.MovePosition(newPos);
 
             // 如果接近目标位置，则停止移动
-            if (math.abs(rb.position.x- targetPos.x)  < 0.1f)
+            if (math.abs(rb.position.x - targetPos.x)  < 0.1f)
             {
                 //isMoving = false;
                 
@@ -111,9 +124,13 @@ public class MouseMovement : MonoBehaviour
             
                 if (targetItem != null)
                 {
-                    //isMoving = false;
-                    targetItem.DogInteract(dog);
-                    targetItem = null;
+                    if (Vector2.Distance(targetItem.transform.position, collider.transform.position)<1)
+                    //if(targetItem.collider.bounds.Intersects(collider.bounds))
+                    {
+                        //isMoving = false; 
+                        targetItem.DogInteract(dog);
+                        targetItem = null;
+                    }
                 }
             }
 
