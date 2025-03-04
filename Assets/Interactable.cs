@@ -72,24 +72,30 @@ public class Interactable : MonoBehaviour
                 sprite.sortingOrder = 1;
                 dog.holdingItem = this;
                 break;
-            case "human":
-                if (dog.holdingItem && dog.holdingItem.name == "correctCD")
-                {
-                    dog.holdingItem.gameObject.SetActive(false);
-                    //dog.holdingItem.transform.position = transform.position;
-                    //dog.holdingItem.transform.parent = transform;
-                    if (GetComponent<HumanRequest>())
-                    {
-                        GetComponent<HumanRequest>().finishRequest();
-                    }
-                    
-                    dog.holdingItem = null;
-                }
-                else
-                {
-                    GetComponent<HumanRequest>().wrongDeliver();
-                }
-                break;
+            // case "human":
+            //     if (GetComponent<HumanRequest>().isCorrectDelivery(dog.holdingItem.name))
+            //     {
+            //         
+            //     }
+            //     else
+            //     {
+            //         GetComponent<HumanRequest>().wrongDeliver();
+            //     }
+            //     break;
+        }
+
+        if (dog.holdingItem && GetComponent<HumanRequest>())
+        {
+            if (GetComponent<HumanRequest>().isCorrectDelivery(dog.holdingItem.name))
+            {
+                GetComponent<HumanRequest>().finishRequest();
+                dog.holdingItem.gameObject.SetActive(false);
+                dog.holdingItem = null;
+            }
+            else
+            {
+                GetComponent<HumanRequest>().wrongDeliver();
+            }
         }
 
     }
