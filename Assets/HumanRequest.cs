@@ -13,7 +13,10 @@ public class HumanRequest : MonoBehaviour
 
     public string requestName;
     public HumanRequest nextRequestToFinish;
-    
+    public int requireItemCount = 1;
+    private int getItemCount = 0;
+    public GameObject finishedItem;
+    public GameObject unfinishedItem;
     private void Awake()
     {
         dialogue = GetComponentInChildren<DialogueBubble>();
@@ -23,6 +26,15 @@ public class HumanRequest : MonoBehaviour
     public bool isCorrectDelivery(string n)
     {
          return n == requestItemName;
+    }
+
+    public void deliverItem()
+    {
+        getItemCount++;
+        if (getItemCount >= requireItemCount)
+        {
+            finishRequest();
+        }
     }
     
     public void finishRequest()
@@ -37,14 +49,26 @@ public class HumanRequest : MonoBehaviour
         if (dialogue)
         {
             
+            dialogue.Show(commentName+"_correct");
+            
+            
             GetComponent<Interactable>().commentName = GetComponent<Interactable>().commentName + "_finished";
             commentName = GetComponent<Interactable>().commentName;
-            dialogue.Show(commentName+"_correct");
         }
 
         if (requestName == "day1Record")
         {
             //unlock upper level
+        }
+
+        
+        if (unfinishedItem)
+        {
+            unfinishedItem.SetActive(false);
+        }
+        if (finishedItem)
+        {
+            finishedItem.SetActive(true);
         }
 
         if (nextRequestToFinish)

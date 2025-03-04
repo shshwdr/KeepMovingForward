@@ -43,10 +43,17 @@ public class Interactable : MonoBehaviour
 
     public virtual void Interact()
     {
-        if (actionName == "ball")
+        switch (actionName)
         {
-            
-            GetComponent<Rigidbody2D>().isKinematic = false;
+            case "ball":
+            case "trophy":
+                
+                GetComponent<Rigidbody2D>().isKinematic = false;
+
+                break;
+            case "cupboardDoor":
+                gameObject.SetActive(false);
+                break;
         }
         Debug.Log("Interacted with: " + gameObject.name);
 
@@ -57,6 +64,7 @@ public class Interactable : MonoBehaviour
         switch (actionName)
         {
             case "ball":
+                case "trophy":
                 
                 if (dog.holdingItem)
                 {
@@ -88,7 +96,7 @@ public class Interactable : MonoBehaviour
         {
             if (GetComponent<HumanRequest>().isCorrectDelivery(dog.holdingItem.name))
             {
-                GetComponent<HumanRequest>().finishRequest();
+                GetComponent<HumanRequest>().deliverItem();
                 dog.holdingItem.gameObject.SetActive(false);
                 dog.holdingItem = null;
             }
