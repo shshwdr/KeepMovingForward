@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,15 +6,75 @@ using UnityEngine;
 public class SceneManager : Singleton<SceneManager>
 {
     public Door[] doors;
+
+    public int currentDay = 1;
+    public int startDay = 1;
+    public GameObject[] days;
+
+    public DayController dayController;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
+    {
+        currentDay = startDay;
+    }
+
+    private void Start()
+    {
+        LoadDay();
+    }
+
+    void LoadDay()
     {
         
+        foreach (var day in days)
+        {
+            day.SetActive(false);
+        }
+        days[currentDay].SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            if (currentDay > 0)
+            {
+                currentDay--;
+                LoadDay();
+            }
+        }else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+             NextDay();
+        }
+    }
+
+    public void CheckFinish()
+    {
+        bool allFinished = true;
+        foreach (var request in FindObjectsOfType<HumanRequest>())
+        {
+            if (!request.finished)
+            {
+                 allFinished = false;
+                 break;
+            }
+        }
+
+        if (allFinished)
+        {
+            NextDay();
+        }
+    }
+    
+    public void NextDay()
+    {
+        dayController.StartDay();
         
+        if (currentDay < days.Length - 1)
+        {
+            currentDay++;
+            LoadDay();
+        }
     }
 }

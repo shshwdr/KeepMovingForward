@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class HumanRequest : MonoBehaviour
 {
-    private bool finished = false;
+    public bool finished = false;
 
     public string requestItemName;
     
@@ -35,6 +36,14 @@ public class HumanRequest : MonoBehaviour
         {
             finishRequest();
         }
+        
+        
+        switch (requestName)
+        {
+            case "box":
+                transform.DOPunchScale(transform.localScale, 0.2f, 10, 1f);
+                break;
+        }
     }
     
     public void finishRequest()
@@ -61,6 +70,12 @@ public class HumanRequest : MonoBehaviour
             //unlock upper level
         }
 
+        switch (requestName)
+        {
+            case "day1Record":
+                break;
+        }
+
         
         if (unfinishedItem)
         {
@@ -75,6 +90,8 @@ public class HumanRequest : MonoBehaviour
         {
             nextRequestToFinish.finishRequest();
         }
+
+       SceneManager.Instance. CheckFinish();
     }
 
     public void wrongDeliver()
