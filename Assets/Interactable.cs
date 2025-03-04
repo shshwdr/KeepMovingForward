@@ -71,6 +71,7 @@ public class Interactable : MonoBehaviour
                 case "trophy":
                 case "duster":
                 
+                    dog.animator.SetTrigger("pick");
                 if (dog.holdingItem)
                 {
                     dog.holdingItem.DogDrop(dog);
@@ -83,7 +84,7 @@ public class Interactable : MonoBehaviour
                 GetComponent<Rigidbody2D>().isKinematic = true;
                 GetComponentInChildren<Collider2D>().enabled = false;
                 sprite.sortingLayerName = "Dog";
-                sprite.sortingOrder = 1;
+                sprite.sortingOrder = -1;
                 
                 dog.holdingItem = this;
                 break;

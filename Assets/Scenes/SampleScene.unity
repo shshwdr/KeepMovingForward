@@ -5031,6 +5031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1310745368}
   - component: {fileID: 1310745369}
+  - component: {fileID: 1310745370}
   m_Layer: 7
   m_Name: dog
   m_TagString: Untagged
@@ -5047,8 +5048,8 @@ Transform:
   m_GameObject: {fileID: 1310745367}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.15, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1643592846}
@@ -5094,7 +5095,7 @@ SpriteRenderer:
   m_SortingLayerID: -31415467
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6e48975394cecd6499d2d95cc1969228, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c5909809ea8d20d4abd8bc7aaf2f06f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5105,6 +5106,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1310745370
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310745367}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d2e98991732249d4496c09c979134cc3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1315228359
 GameObject:
   m_ObjectHideFlags: 0
@@ -5913,6 +5935,7 @@ MonoBehaviour:
     m_Bits: 64
   mouth: {fileID: 1776468080}
   holdingItem: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &1643592851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6346,7 +6369,7 @@ Transform:
   m_GameObject: {fileID: 1776468079}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.04, y: 0.42, z: 0}
+  m_LocalPosition: {x: 1.47, y: 0.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6484,10 +6507,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

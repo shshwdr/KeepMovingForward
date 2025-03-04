@@ -19,10 +19,13 @@ public class DogClickController : MonoBehaviour
     public Transform mouth;
 
     public Interactable holdingItem;
+    [HideInInspector]
+    public Animator animator;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         collider = GetComponentInChildren<Collider2D>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -46,6 +49,8 @@ public class DogClickController : MonoBehaviour
                     
                     targetPos = hit.collider.transform.position;
                     isMoving = true;
+                    
+                    animator.SetBool("walk",true);
                     //return;
                 }
                 // 点击到地面
@@ -81,6 +86,8 @@ public class DogClickController : MonoBehaviour
                     targetPos = hitDown.point;
                     targetLayer = hitDown.collider.GetComponent<Ground>().layer;
                     isMoving = true;
+                    
+                    animator.SetBool("walk",true);
                 }
             }
 
@@ -97,6 +104,7 @@ public class DogClickController : MonoBehaviour
         
         if (isMoving)
         {
+            
             var velocity = rb.position - lastPosition;
             if (velocity.x > 0 && !facingRight)
                 Flip();
@@ -120,8 +128,8 @@ public class DogClickController : MonoBehaviour
             if (math.abs(rb.position.x - targetPos.x)  < 0.1f)
             {
                 //isMoving = false;
-                
-                
+                animator.SetBool("walk",false);
+                isMoving = false;
             
                 if (targetItem != null)
                 {
