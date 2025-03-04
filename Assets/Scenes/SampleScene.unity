@@ -1300,6 +1300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 453904539}
   - component: {fileID: 453904540}
+  - component: {fileID: 453904541}
   m_Layer: 0
   m_Name: ghost
   m_TagString: Player
@@ -1342,6 +1343,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   characterRenderer: {fileID: 416029043}
+--- !u!114 &453904541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453904538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8c76fb8554ec54eb6d2dd966d136ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatDistance: 0.5
+  floatDuration: 2
+  fadeDuration: 1
+  minAlpha: 0.3
+  maxAlpha: 1
 --- !u!1 &475853153
 GameObject:
   m_ObjectHideFlags: 0
@@ -3455,11 +3473,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 647272828983385384, guid: b926e00d4e938ba40988496d3993b920, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.17
+      value: 1.32
       objectReference: {fileID: 0}
     - target: {fileID: 647272828983385384, guid: b926e00d4e938ba40988496d3993b920, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.14
+      value: 8.99
       objectReference: {fileID: 0}
     - target: {fileID: 647272828983385384, guid: b926e00d4e938ba40988496d3993b920, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8507,6 +8525,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1211741305}
     m_Modifications:
+    - target: {fileID: 1082955254123141867, guid: cd89d9d43939cf547aef17b78e691e75, type: 3}
+      propertyPath: commentName
+      value: sister1
+      objectReference: {fileID: 0}
     - target: {fileID: 7490954027759555716, guid: cd89d9d43939cf547aef17b78e691e75, type: 3}
       propertyPath: m_Name
       value: HumanGirl
@@ -8821,7 +8843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 199021827250113023, guid: 72f0382581334c44fba57560061c2217, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.23
+      value: -4.11
       objectReference: {fileID: 0}
     - target: {fileID: 199021827250113023, guid: 72f0382581334c44fba57560061c2217, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8858,6 +8880,10 @@ PrefabInstance:
     - target: {fileID: 1477155563808198785, guid: 72f0382581334c44fba57560061c2217, type: 3}
       propertyPath: m_Name
       value: HumanBoy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975025103662440174, guid: 72f0382581334c44fba57560061c2217, type: 3}
+      propertyPath: commentName
+      value: brother1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

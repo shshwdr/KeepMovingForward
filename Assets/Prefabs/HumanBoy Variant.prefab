@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2170916281873922773, guid: 8aef68686772da2488659c69b0ec16a6, type: 3}
       propertyPath: commentName
-      value: sister
+      value: brother
       objectReference: {fileID: 0}
     - target: {fileID: 3019791967024051492, guid: 8aef68686772da2488659c69b0ec16a6, type: 3}
       propertyPath: m_LocalPosition.y

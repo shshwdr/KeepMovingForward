@@ -84,6 +84,7 @@ public class Interactable : MonoBehaviour
                 GetComponentInChildren<Collider2D>().enabled = false;
                 sprite.sortingLayerName = "Dog";
                 sprite.sortingOrder = 1;
+                
                 dog.holdingItem = this;
                 break;
             case "dust":

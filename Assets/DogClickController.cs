@@ -125,7 +125,7 @@ public class DogClickController : MonoBehaviour
             
                 if (targetItem != null)
                 {
-                    if (Vector2.Distance(targetItem.transform.position, collider.transform.position)<1)
+                    if (Vector2.Distance(targetItem.transform.position, collider.transform.position)<2)
                     //if(targetItem.collider.bounds.Intersects(collider.bounds))
                     {
                         //isMoving = false; 

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -39,18 +40,36 @@ public class PlayerController : MonoBehaviour
 
         {
             
-            var targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(targetPosition, Vector2.zero);
             Interactable over;
-            if (hit.collider != null && ((1 << hit.collider.gameObject.layer) & interactableLayer) != 0)
+            var targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(targetPosition, Vector2.zero,100, interactableLayer);
+            if (hits.Length > 0)
             {
-                over = hit.collider.GetComponentInParent<Interactable>();
+                // 根据 SpriteRenderer 的 sortingOrder 倒序排列（排序越大，渲染越靠前）
+                RaycastHit2D topHit = hits.OrderByDescending(hit =>
+                {
+                    // 如果没有 SpriteRenderer，则返回 0
+                    SpriteRenderer sr = hit.collider.GetComponent<SpriteRenderer>();
+                    int layerValue = SortingLayer.GetLayerValueFromID(sr.sortingLayerID);
+
+                    return layerValue*10000+sr.sortingOrder;
+                }).First();
+                if (topHit.collider != null && ((1 << topHit.collider.gameObject.layer) & interactableLayer) != 0)
+                {
+                    over = topHit.collider.GetComponentInParent<Interactable>();
+                }
+                else
+                {
+                    over = null;
+                }
+
+                //Debug.Log("最上层的Collider是：" + topHit.collider.name);
             }
             else
             {
                 over = null;
             }
-
+            
             if (over != currentOver)
             {
                 if (currentOver != null && currentOver.outline != null)
@@ -64,6 +83,7 @@ public class PlayerController : MonoBehaviour
                     over.outline.SetActive(true);
                 }
             }
+            
         }
         
         // Update target position based on mouse input
@@ -71,23 +91,42 @@ public class PlayerController : MonoBehaviour
         {
             targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             isMoving = true;
-
-            RaycastHit2D hit = Physics2D.Raycast(targetPosition, Vector2.zero);
-            bool needCheckGround = true;
-            if (hit.collider != null)
+            RaycastHit2D[] hits = Physics2D.RaycastAll(targetPosition, Vector2.zero,100, interactableLayer);
+            if (hits.Length > 0)
             {
-                // 点击到可交互物品
-                if (((1 << hit.collider.gameObject.layer) & interactableLayer) != 0)
+                // 根据 SpriteRenderer 的 sortingOrder 倒序排列（排序越大，渲染越靠前）
+                RaycastHit2D topHit = hits.OrderByDescending(hit =>
                 {
-                    targetItem = hit.collider.GetComponentInParent<Interactable>();
-                    isMoving = true;
-                    //return;
+                    // 如果没有 SpriteRenderer，则返回 0
+                    SpriteRenderer sr = hit.collider.GetComponent<SpriteRenderer>();
+                    int layerValue = SortingLayer.GetLayerValueFromID(sr.sortingLayerID);
+
+                    return layerValue*10000+sr.sortingOrder;
+                }).First();
+
+                if (topHit.collider != null)
+                {
+                    // 点击到可交互物品
+                    if (((1 << topHit.collider.gameObject.layer) & interactableLayer) != 0)
+                    {
+                        targetItem = topHit.collider.GetComponentInParent<Interactable>();
+                        isMoving = true;
+                        //return;
+                    }
+                    else
+                    {
+                        targetItem = null;
+                    }
                 }
                 else
                 {
                     targetItem = null;
+                    
                 }
             }
+
+            //RaycastHit2D hit = Physics2D.Raycast(targetPosition, Vector2.zero);
+            //bool needCheckGround = true;
             else
             {
                 targetItem = null;
