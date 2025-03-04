@@ -1408,11 +1408,13 @@ MonoBehaviour:
   - {fileID: 1541666437}
   - {fileID: 756409017}
   currentDay: 1
-  startDay: 2
+  startDay: 1
   days:
   - {fileID: 402653000}
   - {fileID: 1622368009}
   - {fileID: 1643713926}
+  - {fileID: 1731997442}
+  - {fileID: 1747436609}
   dayController: {fileID: 226911595}
 --- !u!4 &485336577 stripped
 Transform:
@@ -5015,6 +5017,8 @@ Transform:
   - {fileID: 1622368010}
   - {fileID: 1643713927}
   - {fileID: 402653001}
+  - {fileID: 1731997443}
+  - {fileID: 1747436610}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1310745367
@@ -5936,7 +5940,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1643713927
 Transform:
   m_ObjectHideFlags: 0
@@ -6146,6 +6150,37 @@ Transform:
   - {fileID: 877914196}
   m_Father: {fileID: 1643713927}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1731997442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1731997443}
+  m_Layer: 0
+  m_Name: day3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1731997443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731997442}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1295694031}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1732110396
 GameObject:
   m_ObjectHideFlags: 0
@@ -6190,6 +6225,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a5b1777dd86c14aa40ef98e4cdf358, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1747436609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1747436610}
+  m_Layer: 0
+  m_Name: day4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1747436610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747436609}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1295694031}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1774055044
 PrefabInstance:
   m_ObjectHideFlags: 0
