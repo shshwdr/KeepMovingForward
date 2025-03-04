@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
@@ -14,7 +15,7 @@ public class Interactable : MonoBehaviour
     public GameObject outline;
     public int sortLayer;
     public int sortOrder;
-    
+    private Animator animator;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -22,6 +23,7 @@ public class Interactable : MonoBehaviour
         sprite = GetComponentInChildren<SpriteRenderer>();
         sortLayer = sprite.sortingLayerID;
         sortOrder = sprite.sortingOrder;
+        animator = GetComponentInChildren<Animator>();
     }
 
     void OnMouseDown()
@@ -47,6 +49,8 @@ public class Interactable : MonoBehaviour
         {
             case "ball":
             case "trophy":
+            case "duster":
+            case "dust":
                 
                 GetComponent<Rigidbody2D>().isKinematic = false;
 
@@ -65,6 +69,7 @@ public class Interactable : MonoBehaviour
         {
             case "ball":
                 case "trophy":
+                case "duster":
                 
                 if (dog.holdingItem)
                 {
@@ -72,13 +77,23 @@ public class Interactable : MonoBehaviour
                 }
             
             
+                transform.rotation = quaternion.identity;
                 transform.parent = dog.transform;
-                transform.position = dog.transform.position;
+                transform.position = dog.mouth.position;
                 GetComponent<Rigidbody2D>().isKinematic = true;
                 GetComponentInChildren<Collider2D>().enabled = false;
                 sprite.sortingLayerName = "Dog";
                 sprite.sortingOrder = 1;
                 dog.holdingItem = this;
+                break;
+            case "dust":
+                if (dog.holdingItem && dog.holdingItem.name == "duster")
+                {
+                    gameObject.SetActive(false);
+                    dog.holdingItem.animator.SetTrigger("Use");
+                    dog.holdingItem.GetComponentInChildren<HumanRequest>().deliverItem();
+                }
+
                 break;
             // case "human":
             //     if (GetComponent<HumanRequest>().isCorrectDelivery(dog.holdingItem.name))

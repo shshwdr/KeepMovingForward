@@ -16,6 +16,7 @@ public class DogClickController : MonoBehaviour
     private Transform targetDoor = null;
     private Collider2D collider;
     private bool facingRight = true;
+    public Transform mouth;
 
     public Interactable holdingItem;
     void Start()
