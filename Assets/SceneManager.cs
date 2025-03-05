@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SceneManager : Singleton<SceneManager>
 {
@@ -21,6 +22,8 @@ public class SceneManager : Singleton<SceneManager>
     private void Start()
     {
         LoadDay();
+        
+        Nextday.GetComponentInChildren<Button>().onClick.AddListener(() => { NextDay();});
     }
 
     void LoadDay()
@@ -51,6 +54,7 @@ public class SceneManager : Singleton<SceneManager>
         }
     }
 
+    public GameObject Nextday;
     public void CheckFinish()
     {
         bool allFinished = true;
@@ -65,18 +69,20 @@ public class SceneManager : Singleton<SceneManager>
 
         if (allFinished)
         {
-            NextDay();
+            Nextday.SetActive(true);
         }
     }
     
     public void NextDay()
     {
         
+        Nextday.SetActive(false);
         if (currentDay < days.Length - 1)
         {
             currentDay++;
             dayController.StartDay();
             LoadDay();
+            
         }
     }
 }
