@@ -1,4 +1,5 @@
 id,text
+dog_out_of_reach,?
 cd_lvl1,That should help lightening the mood!
 cd_lvl2_yellow,Great music on that one!
 cd_lvl2_red,Probably my favorite album!
@@ -8,46 +9,49 @@ picture,"We're so happy here, simply jamming together"
 picture,Best family ever!
 characterA_lvl1,Hmm... Maybe we can cheer them up somehow?
 characterA_lvl1_finished,You're never fully dressed without a smile!
-characterA_lvl1_correct,"Ah, the music we shared together before"
-characterA_lvl1_wrong,Leave me alone
-characterA_lvl1_finished_wrong,You are a gift
+characterA_lvl1_correct,[PLACEHOLDER]
+characterA_lvl1_wrong,[PLACEHOLDER]
+characterA_lvl1_finished_wrong,[PLACEHOLDER]
 characterB_lvl1,"They seem overwhelmed... 
 Let's help packing up the trophies!"
 characterB_lvl1_finished,At least we brought them a bit of relief
-characterB_lvl1_correct,Did I pack them? I don't remember
-characterB_lvl1_wrong,Leave me alone
-characterB_lvl1_finished_wrong,You are a gift
+characterB_lvl1_correct,[PLACEHOLDER]
+characterB_lvl1_wrong,[PLACEHOLDER]
+characterB_lvl1_finished_wrong,[PLACEHOLDER]
 recorder_lvl1,Nothing like a little music to feel better
 recorder_lvl2,Music can be a great way to start the day
 cupboardDoor,Open sesamy!
 cupboardDoor,What's in there again?
 cupboardDoor,"Oh, I forgot that was here!"
 cupboardDoor,Final door!
-trophy,No trophy can bring me as much pride as you all do
+trophy_drop,Down you go!
+trophy_dropped,No trophy can bring me as much pride as you all do
 trophyBox,Looks like the trophies should be packed here
-dust,"Dun, dun, dun... Another one bites the dust!"
+dust,"Dun, dun, dun..."
+dust,Another one bites the dust!
 dust,Guess that makes me dust in the wind
-duster,"Oh yeah, Ghostdusters!"
+duster,Ghostdusters!
 duster,Can you pick it up?
 duster,You can probably clean the living room dust with that
 mirrorDirty,"I... can't see anything, it's too dirty"
-mirrorWater,I can clean it with something now..
+mirrorWater,I should pick up a tissue to clean it up
 mirrorClean,AAAAAAA... a ghost
-tissueBox,Puff! Hey look what I get!
-spray,I guess it can be used to clean stuff?
-recordBox,It should be filled with record
-prelog0_sister,I can't believe this whole thing
-prelog1_brother,"It's like he is still sitting in that sofa, waiting for us coming back"
-prelog2_sister,That's.. the ball that he played a lot with him.
-prelog3_sister,"I can't, I can't understand the whole thing!"
-prelog5_ghost,"Aha! Wait? What? Where am I? I thought I finally hit the ""Respawn"" Button!"
-prelog5_ghost,"Am I, a ghost now? What the. . ."
-prelog5_ghost,Oh hey you poor child.. Do you want to play again?
-prelog5_ghost,I really don't know if we can do this again
-prelog5_ghost2,Wow! It works!
-prelog6_brother,We still have lots of work to do here
-prelog6_sister,"I know, I just , I can't focus on them"
-prelog6_brother,Yeah me too.. Look at all the things he left
-prelog7_ghost,Time for work buddy. Guess we need to do something to cherry them up.
-tutorial_1,left click the ball to move the ghost and interact with the ball
-tutorial_2,right click the ball to move the dog and interact the the ball
+tissueBox,Perfect to wipe off some stains
+spray,"Windows, mirrors... it cleans everything!"
+prelog5_ghost,Please help them move on
+prelog5_ghost,I can't do it on my own
+prelog5_dog,^^
+tutorial_1,Left Click: Ghost interaction
+tutorial_2,Right Click: Dog interaction
+epilog1_ghost,Thank you Lucy
+epilog1_ghost,For helping them move on
+epilog1_ghost,Now...
+epilog1_ghost,You need to move on too
+epilog2_ghost,Cherish our shared memories
+epilog2_ghost,And...
+epilog2_ghost,Move forward to make new ones
+epilog3_ghost,You're a good dog Lucy
+epilog3_ghost,The best there is
+epilog3_ghost,...
+epilog3_ghost,Keep being you
+epilog3_ghost,Keep moving forward!
