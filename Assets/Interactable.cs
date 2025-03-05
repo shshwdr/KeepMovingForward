@@ -53,7 +53,8 @@ public class Interactable : MonoBehaviour
         {
             case "firstBall":
                 PlayPrelog.Instance.dropBall();
-                GetComponent<Rigidbody2D>().isKinematic = false;
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_ghost_interact");
+                GetComponent<Rigidbody2D>().isKinematic = false;              
                 break;
             case "ball":
             case "trophy":
@@ -62,8 +63,7 @@ public class Interactable : MonoBehaviour
             case "spray":
                 
                 GetComponent<Rigidbody2D>().isKinematic = false;
-                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_ghost_interact");
-                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_item_fall");
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_ghost_interact");               
 
                 break;
             case "cupboardDoor":
@@ -163,6 +163,7 @@ public class Interactable : MonoBehaviour
                 {
                     gameObject.SetActive(false);
                     dog.holdingItem.animator.SetTrigger("Use");
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_clean_dust");
                     dog.holdingItem.GetComponentInChildren<HumanRequest>().deliverItem();
                 }
 
@@ -194,6 +195,7 @@ public class Interactable : MonoBehaviour
             if (GetComponent<HumanRequest>().isCorrectDelivery(dog.holdingItem.name))
             {
                 GetComponent<HumanRequest>().deliverItem();
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_put_in_box");
                 dog.holdingItem.gameObject.SetActive(false);
                 dog.holdingItem = null;
             }

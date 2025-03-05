@@ -34,7 +34,7 @@ public class HumanRequest : MonoBehaviour
         getItemCount++;
         if (getItemCount >= requireItemCount)
         {
-            finishRequest();
+            finishRequest();           
         }
         
         
@@ -51,9 +51,9 @@ public class HumanRequest : MonoBehaviour
     {
         if (finished)
         {
-            return;
+            return;         
         }
-
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_finish_task");
         finished = true;
 
         if (dialogue)
@@ -69,6 +69,7 @@ public class HumanRequest : MonoBehaviour
         if (requestName == "day1Record")
         {
             //unlock upper level
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_use_recorder");
         }
 
         switch (requestName)
