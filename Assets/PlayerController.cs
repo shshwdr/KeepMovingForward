@@ -34,6 +34,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        
+        if (PlayPrelog.Instance.isPlayingPrelog)
+        {
+            return;
+        }
         var velocity = transform.position - lastPosition;
         if (velocity.x > 0 && !facingRight)
             Flip();

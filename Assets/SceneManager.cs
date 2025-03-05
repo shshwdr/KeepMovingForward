@@ -31,6 +31,8 @@ public class SceneManager : Singleton<SceneManager>
             day.SetActive(false);
         }
         days[currentDay].SetActive(true);
+
+        PlayPrelog.Instance.ShowPrelog();
     }
 
     // Update is called once per frame
@@ -69,11 +71,11 @@ public class SceneManager : Singleton<SceneManager>
     
     public void NextDay()
     {
-        dayController.StartDay();
         
         if (currentDay < days.Length - 1)
         {
             currentDay++;
+            dayController.StartDay();
             LoadDay();
         }
     }

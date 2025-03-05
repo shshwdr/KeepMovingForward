@@ -9,7 +9,7 @@ public class DialogueBubble : MonoBehaviour
     public CanvasGroup dialogue;
     private Sequence dialogueDotween;
     
-    public void Show(string dialogueId)
+    public void Show(string dialogueId,bool willHide = true)
     {
         if (dialogueId != "" &&
             CSVLoader.Instance.dialogueIndex.ContainsKey(dialogueId))
@@ -21,15 +21,23 @@ public class DialogueBubble : MonoBehaviour
             dialogueDotween = DOTween.Sequence();
             dialogueDotween.Append(dialogue.DOFade(1f, 0.5f));
             dialogueDotween.AppendInterval(5);
-            dialogueDotween.Append(dialogue.DOFade(0f, 0.5f));
+            if (willHide)
+            {
+                dialogueDotween.Append(dialogue.DOFade(0f, 0.5f));
+            }
             var texts = CSVLoader.Instance.DialogueInfoMap[dialogueId];
             var index = CSVLoader.Instance.dialogueIndex[dialogueId];
 
             dialogue.GetComponentInChildren<TMP_Text>().text = texts[index].text;
             index++;
-            if (index >= texts.Count)
+            
+            
+            if (willHide)
             {
-                index = 0;
+                if (index >= texts.Count)
+                {
+                    index = 0;
+                }
             }
 
             CSVLoader.Instance.dialogueIndex[dialogueId] = index;

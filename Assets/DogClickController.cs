@@ -34,6 +34,11 @@ public class DogClickController : MonoBehaviour
 
     void Update()
     {
+        if (PlayPrelog.Instance.isPlayingPrelog)
+        {
+            return;
+        }
+        
         interactionTime -= Time.deltaTime;
         if (interactionTime > 0)
         {

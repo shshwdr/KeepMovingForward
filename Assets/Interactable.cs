@@ -18,11 +18,15 @@ public class Interactable : MonoBehaviour
     private Animator animator;
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = PlayPrelog.Instance.player.transform;
         collider = GetComponentInChildren<Collider2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
-        sortLayer = sprite.sortingLayerID;
-        sortOrder = sprite.sortingOrder;
+        if (sprite)
+        {
+            
+            sortLayer = sprite.sortingLayerID;
+            sortOrder = sprite.sortingOrder;
+        }
         animator = GetComponentInChildren<Animator>();
     }
 
@@ -47,6 +51,10 @@ public class Interactable : MonoBehaviour
     {
         switch (actionName)
         {
+            case "firstBall":
+                PlayPrelog.Instance.dropBall();
+                GetComponent<Rigidbody2D>().isKinematic = false;
+                break;
             case "ball":
             case "trophy":
             case "duster":
@@ -97,17 +105,34 @@ public class Interactable : MonoBehaviour
         {
             case "door":
 
-                foreach (var door in FindObjectsOfType<Door>())
+
+                if (SceneManager.Instance.currentDay != 0)
                 {
-                    if (door.gameObject != this.gameObject)
+                    foreach (var door in FindObjectsOfType<Door>())
                     {
-                        //dog.transform.position = door.transform.position;
-                        dog.rb.position = door.transform.position;
-                        dog.currentLayer = door.layer;
-                        dog.interactionTime = 1f;
+                        if (door.gameObject != this.gameObject)
+                        {
+                            //dog.transform.position = door.transform.position;
+                            dog.rb.position = door.transform.position;
+                            dog.currentLayer = door.layer;
+                            dog.interactionTime = 1f;
+                        }
                     }
                 }
                 
+                break;
+            
+            case "firstBall":
+                PlayPrelog.Instance.caughtBall = true;
+                dog.animator.SetTrigger("pick");
+                    
+                dog.interactionTime = 0.5f;
+                if (dog.holdingItem)
+                {
+                    dog.holdingItem.DogDrop(dog);
+                }
+
+                StartCoroutine(pick(dog));
                 break;
             case "ball":
                 case "trophy":
