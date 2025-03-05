@@ -95,12 +95,28 @@ public class Interactable : MonoBehaviour
     {
         switch (actionName)
         {
+            case "door":
+
+                foreach (var door in FindObjectsOfType<Door>())
+                {
+                    if (door.gameObject != this.gameObject)
+                    {
+                        //dog.transform.position = door.transform.position;
+                        dog.rb.position = door.transform.position;
+                        dog.currentLayer = door.layer;
+                        dog.interactionTime = 1f;
+                    }
+                }
+                
+                break;
             case "ball":
                 case "trophy":
                 case "duster":
                 case "spray":
                 
                     dog.animator.SetTrigger("pick");
+                    
+                    dog.interactionTime = 0.5f;
                 if (dog.holdingItem)
                 {
                     dog.holdingItem.DogDrop(dog);
@@ -110,6 +126,8 @@ public class Interactable : MonoBehaviour
                 
                 break;
             case "dust":
+                
+                dog.interactionTime = 0.5f;
                 if (dog.holdingItem && dog.holdingItem.name == "duster")
                 {
                     gameObject.SetActive(false);
@@ -119,6 +137,8 @@ public class Interactable : MonoBehaviour
 
                 break;
             case "mirrorDirty":
+                
+                dog.interactionTime = 0.5f;
                 if (dog.holdingItem && dog.holdingItem.name == "spary")
                 {
                     //gameObject.SetActive(false);

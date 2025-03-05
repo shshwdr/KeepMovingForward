@@ -13,10 +13,10 @@ public class CameraTrigger : MonoBehaviour
         {
             myCamera.SetActive(true);
             otherCamera.SetActive(false);
-
+    
             print("Damn");
         }
-
+    
         print("DAMNIT");
     }
 }

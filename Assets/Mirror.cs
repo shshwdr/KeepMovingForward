@@ -14,6 +14,7 @@ public class Mirror : MonoBehaviour
         water.SetActive(false);
         GetComponent<Interactable>().commentName = "mirrorClean";
         GetComponent<Interactable>().actionName = "";
+        GetComponent<HumanRequest>().finishRequest();
     }
 
     public void AddWater()

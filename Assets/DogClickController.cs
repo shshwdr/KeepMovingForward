@@ -9,16 +9,18 @@ public class DogClickController : MonoBehaviour
     public LayerMask groundLayer;          // 地面层
     public LayerMask interactableLayer;    // 可交互物品层
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private Vector2 targetPos;
     private bool isMoving = false;
     private Interactable targetItem;
-    private int currentLayer = 0;
+    public int currentLayer = 0;
     private int targetLayer = 0;
     private Transform targetDoor = null;
     private Collider2D collider;
     private bool facingRight = true;
     public Transform mouth;
+
+    public float interactionTime = 0;
 
     public Interactable holdingItem;
     [HideInInspector]
@@ -32,6 +34,11 @@ public class DogClickController : MonoBehaviour
 
     void Update()
     {
+        interactionTime -= Time.deltaTime;
+        if (interactionTime > 0)
+        {
+            return;
+        }
         // 鼠标左键点击检测
         if (Input.GetMouseButton(1))
         {
@@ -101,7 +108,7 @@ public class DogClickController : MonoBehaviour
             {
                 // 如果点击处既不是 interactable 也不是 ground，
                 // 则从点击位置向下发射射线寻找 ground
-                RaycastHit2D hitDown = Physics2D.Raycast(clickWorldPos, Vector2.down, 100f, groundLayer);
+                 RaycastHit2D hitDown = Physics2D.Raycast(clickWorldPos, Vector2.down, 100f, groundLayer);
                 if (hitDown.collider != null)
                 {
                     targetPos = hitDown.point;
@@ -122,7 +129,6 @@ public class DogClickController : MonoBehaviour
     private Vector2 lastPosition;
     void FixedUpdate()
     {
-        
         if (isMoving)
         {
             
