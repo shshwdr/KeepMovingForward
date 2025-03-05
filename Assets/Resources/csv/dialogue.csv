@@ -1,39 +1,37 @@
-id,text,speaker,type,otherEvent,next,respond,respondCheck
-cd_lvl1,That should help lightening the mood!,,,,,,
-cd_lvl2_yellow,Great music on that one!,,,,,,
-cd_lvl2_red,Probably my favorite album!,,,,,,
-cd_lvl2_purple,"Oh, this is a classic!",,,,,,
-poster_lvl2,That was our favorite band!,,,,,,
-picture,"We're so happy here, simply jamming together",,,,,,
-picture,Best family ever!,,,,,,
-letters,N/A,,,,,,
-letters,N/A,,,,,,
-characterA_lvl1,Hmm... Maybe we can cheer them up somehow?,,,,,,
-characterA_lvl1_finished,You're never fully dressed without a smile!,,,,,,
-characterA_lvl1_correct,N/A,,,,,,
-characterA_lvl1_wrong,N/A,,,,,,
-characterA_lvl1_finished_wrong,N/A,,,,,,
+id,text
+cd_lvl1,That should help lightening the mood!
+cd_lvl2_yellow,Great music on that one!
+cd_lvl2_red,Probably my favorite album!
+cd_lvl2_purple,"Oh, this is a classic!"
+poster_lvl2,That was our favorite band!
+picture,"We're so happy here, simply jamming together"
+picture,Best family ever!
+letters,N/A
+letters,N/A
+characterA_lvl1,Hmm... Maybe we can cheer them up somehow?
+characterA_lvl1_finished,You're never fully dressed without a smile!
+characterA_lvl1_correct,N/A
+characterA_lvl1_wrong,N/A
+characterA_lvl1_finished_wrong,N/A
 characterB_lvl1,"They seem overwhelmed... 
-Let's help packing up the trophies!",,,,,,
-characterB_lvl1_finished,At least we brought them a bit of relief,,,,,,
-characterB_lvl1_correct,N/A,,,,,,
-characterB_lvl1_wrong,N/A,,,,,,
-characterB_lvl1_finished_wrong,N/A,,,,,,
-recorder_lvl1,Nothing like a little music to feel better,,,,,,
-recorder_lvl2,Music can be a great way to start the day,,,,,,
-cdOnTheGround,I hope it still works,,,,,,
-cupboardDoor,Open sesamy!,,,,,,
-cupboardDoor,What's in there again?,,,,,,
-cupboardDoor,"Oh, I forgot that was here!",,,,,,
-cupboardDoor,Final door!,,,,,,
-trophy,No trophy can bring me as much pride as you all do,,,,,,
-trophyBox,Looks like the trophies should be packed here,,,,,,
-dust,"Dun, dun, dun... 
-Another one bites the dust!",,,,,,
-dust,Guess that makes me dust in the wind,,,,,,
-duster,"Oh yeah, Ghostdusters!",,,,,,
-duster,Can you pick it up?,,,,,,
-duster,You can probably clean the living room dust with that,,,,,,
-mirrorDirty,"I... can't see anything, it's too dirty",,,,,,
-mirrorClean,AAAAAAA... a ghost,,,,,,
-,,,,,,,
+Let's help packing up the trophies!"
+characterB_lvl1_finished,At least we brought them a bit of relief
+characterB_lvl1_correct,N/A
+characterB_lvl1_wrong,N/A
+characterB_lvl1_finished_wrong,N/A
+recorder_lvl1,Nothing like a little music to feel better
+recorder_lvl2,Music can be a great way to start the day
+cdOnTheGround,I hope it still works
+cupboardDoor,Open sesamy!
+cupboardDoor,What's in there again?
+cupboardDoor,"Oh, I forgot that was here!"
+cupboardDoor,Final door!
+trophy,No trophy can bring me as much pride as you all do
+trophyBox,Looks like the trophies should be packed here
+dust,"Dun, dun, dun... Another one bites the dust!"
+dust,Guess that makes me dust in the wind
+duster,"Oh yeah, Ghostdusters!"
+duster,Can you pick it up?
+duster,You can probably clean the living room dust with that
+mirrorDirty,"I... can't see anything, it's too dirty"
+mirrorClean,AAAAAAA... a ghost

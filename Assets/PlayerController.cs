@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Cinemachine;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -38,10 +39,11 @@ public class PlayerController : MonoBehaviour
             Flip();
         lastPosition = transform.position;
 
+        Camera cineCam = CinemachineCore.Instance.GetActiveBrain(0).OutputCamera;
         {
             
             Interactable over;
-            var targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var targetPosition = cineCam.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D[] hits = Physics2D.RaycastAll(targetPosition, Vector2.zero,100, interactableLayer);
             if (hits.Length > 0)
             {
@@ -89,7 +91,7 @@ public class PlayerController : MonoBehaviour
         // Update target position based on mouse input
         if (Input.GetMouseButton(0)) // Left-click to move
         {
-            targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            targetPosition = cineCam.ScreenToWorldPoint(Input.mousePosition);
             isMoving = true;
             RaycastHit2D[] hits = Physics2D.RaycastAll(targetPosition, Vector2.zero,100, interactableLayer);
             if (hits.Length > 0)
