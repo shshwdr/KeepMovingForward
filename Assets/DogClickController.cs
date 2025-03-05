@@ -1,3 +1,5 @@
+using System.Linq;
+using Cinemachine;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -34,45 +36,64 @@ public class DogClickController : MonoBehaviour
         if (Input.GetMouseButton(1))
         {
             // 获取鼠标点击的世界坐标（z设为0）
-            Vector3 clickWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            
+            Camera cineCam = CinemachineCore.Instance.GetActiveBrain(0).OutputCamera;
+            Vector3 clickWorldPos = cineCam.ScreenToWorldPoint(Input.mousePosition);
             clickWorldPos.z = 0f;
-
-            // 使用射线检测点击处是否有物体
-            RaycastHit2D hit = Physics2D.Raycast(clickWorldPos, Vector2.zero);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(clickWorldPos, Vector2.zero,100, interactableLayer);
+            
             bool needCheckGround = true;
-            if (hit.collider != null)
+            if (hits.Length > 0)
             {
-                // 点击到可交互物品
-                if (((1 << hit.collider.gameObject.layer) & interactableLayer) != 0)
+                // 根据 SpriteRenderer 的 sortingOrder 倒序排列（排序越大，渲染越靠前）
+                RaycastHit2D topHit = hits.OrderByDescending(hit =>
                 {
-                    targetItem = hit.collider.GetComponentInParent<Interactable>();
-                    
-                    targetPos = hit.collider.transform.position;
-                    isMoving = true;
-                    
-                    animator.SetBool("walk",true);
-                    //return;
-                }
-                // 点击到地面
-                else if (((1 << hit.collider.gameObject.layer) & groundLayer) != 0)
+                    // 如果没有 SpriteRenderer，则返回 0
+                    SpriteRenderer sr = hit.collider.GetComponent<SpriteRenderer>();
+                    int layerValue = SortingLayer.GetLayerValueFromID(sr.sortingLayerID);
+
+                    return layerValue * 10000 + sr.sortingOrder;
+                }).First();
+                // 使用射线检测点击处是否有物体
+                //RaycastHit2D hit = Physics2D.Raycast(clickWorldPos, Vector2.zero);
+                if (topHit.collider != null)
                 {
-                    // 只取点击点的x值，y保持当前角色的y
-                    targetPos = new Vector2(clickWorldPos.x, transform.position.y);
-                    isMoving = true;
-                    needCheckGround = false;
-                    targetLayer = hit.collider.GetComponent<Ground>().layer;
-                    //return;
-                    targetItem = null;
+                    // 点击到可交互物品
+                    if (((1 << topHit.collider.gameObject.layer) & interactableLayer) != 0)
+                    {
+                        targetItem = topHit.collider.GetComponentInParent<Interactable>();
+
+                        targetPos = topHit.collider.transform.position;
+                        isMoving = true;
+
+                        animator.SetBool("walk", true);
+                        //return;
+                    }
+                    // 点击到地面
+                    // else if (((1 << topHit.collider.gameObject.layer) & groundLayer) != 0)
+                    // {
+                    //     // 只取点击点的x值，y保持当前角色的y
+                    //     targetPos = new Vector2(clickWorldPos.x, transform.position.y);
+                    //     isMoving = true;
+                    //     needCheckGround = false;
+                    //     targetLayer = topHit.collider.GetComponent<Ground>().layer;
+                    //     //return;
+                    //     targetItem = null;
+                    // }
+                    else
+                    {
+
+                        targetItem = null;
+                    }
                 }
                 else
                 {
-                    
+
                     targetItem = null;
                 }
             }
             else
             {
-                
                 targetItem = null;
             }
 

@@ -63,6 +63,20 @@ public class Interactable : MonoBehaviour
 
     }
 
+    IEnumerator pick(DogClickController dog)
+    {
+        yield return new WaitForSeconds(0.6f);
+        
+        transform.rotation = quaternion.identity;
+        transform.parent = dog.transform;
+        transform.position = dog.mouth.position;
+        GetComponent<Rigidbody2D>().isKinematic = true;
+        GetComponentInChildren<Collider2D>().enabled = false;
+        sprite.sortingLayerName = "Dog";
+        sprite.sortingOrder = -1;
+        dog.holdingItem = this;
+    }
+    
     public void DogInteract(DogClickController dog)
     {
         switch (actionName)
@@ -76,17 +90,9 @@ public class Interactable : MonoBehaviour
                 {
                     dog.holdingItem.DogDrop(dog);
                 }
-            
-            
-                transform.rotation = quaternion.identity;
-                transform.parent = dog.transform;
-                transform.position = dog.mouth.position;
-                GetComponent<Rigidbody2D>().isKinematic = true;
-                GetComponentInChildren<Collider2D>().enabled = false;
-                sprite.sortingLayerName = "Dog";
-                sprite.sortingOrder = -1;
+
+                    StartCoroutine(pick(dog));
                 
-                dog.holdingItem = this;
                 break;
             case "dust":
                 if (dog.holdingItem && dog.holdingItem.name == "duster")
