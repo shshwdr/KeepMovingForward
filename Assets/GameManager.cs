@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
+    public GameObject ghostCamera;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -16,6 +18,19 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             Restart();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if(ghostCamera.activeSelf)
+            {
+                ghostCamera.SetActive(false);
+            }
+
+            else
+            {
+                ghostCamera.SetActive(true);
+            }
         }
     }
 
