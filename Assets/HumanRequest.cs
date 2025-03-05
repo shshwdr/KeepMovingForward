@@ -89,7 +89,7 @@ public class HumanRequest : MonoBehaviour
 
         if (nextRequestToFinish)
         {
-            nextRequestToFinish.finishRequest();
+            nextRequestToFinish.deliverItem();
         }
 
        SceneManager.Instance. CheckFinish();

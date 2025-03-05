@@ -51,12 +51,25 @@ public class Interactable : MonoBehaviour
             case "trophy":
             case "duster":
             case "dust":
+            case "spray":
                 
                 GetComponent<Rigidbody2D>().isKinematic = false;
 
                 break;
             case "cupboardDoor":
                 gameObject.SetActive(false);
+                break;
+            case "tissueBox":
+                FindObjectOfType<PlayerController>().tissue.SetActive(true);
+                actionName = "";
+                break;
+            case "mirrorWater":
+                if (FindObjectOfType<PlayerController>().tissue.activeSelf)
+                {
+                    FindObjectOfType<PlayerController>().tissue.SetActive(false);
+                    GetComponent<Mirror>().Clean();
+                }
+
                 break;
         }
         Debug.Log("Interacted with: " + gameObject.name);
@@ -70,6 +83,7 @@ public class Interactable : MonoBehaviour
         transform.rotation = quaternion.identity;
         transform.parent = dog.transform;
         transform.position = dog.mouth.position;
+        GetComponent<Rigidbody2D>().simulated = false;
         GetComponent<Rigidbody2D>().isKinematic = true;
         GetComponentInChildren<Collider2D>().enabled = false;
         sprite.sortingLayerName = "Dog";
@@ -84,6 +98,7 @@ public class Interactable : MonoBehaviour
             case "ball":
                 case "trophy":
                 case "duster":
+                case "spray":
                 
                     dog.animator.SetTrigger("pick");
                 if (dog.holdingItem)
@@ -102,6 +117,14 @@ public class Interactable : MonoBehaviour
                     dog.holdingItem.GetComponentInChildren<HumanRequest>().deliverItem();
                 }
 
+                break;
+            case "mirrorDirty":
+                if (dog.holdingItem && dog.holdingItem.name == "spary")
+                {
+                    //gameObject.SetActive(false);
+                    dog.holdingItem.animator.SetTrigger("Use");
+                    GetComponent<Mirror>().AddWater();
+                }
                 break;
             // case "human":
             //     if (GetComponent<HumanRequest>().isCorrectDelivery(dog.holdingItem.name))

@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 targetPosition;
     private bool isMoving = false;
 
+    public GameObject tissue;
+
     public Transform characterRenderer;
 
     private Interactable targetItem;

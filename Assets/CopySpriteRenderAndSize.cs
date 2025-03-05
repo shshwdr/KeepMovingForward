@@ -15,7 +15,7 @@ public class CopySpriteRenderAndSize : MonoBehaviour
              spriteRenderer.sprite = spriteRendererCopiedFrom.sprite;
              spriteRenderer.transform.localScale = spriteRendererCopiedFrom.transform.localScale * 1.1f;
              spriteRenderer.sortingLayerID = spriteRendererCopiedFrom.sortingLayerID;
-             spriteRenderer.sortingOrder = spriteRendererCopiedFrom.sortingOrder-1;
+             spriteRenderer.sortingOrder = spriteRendererCopiedFrom.sortingOrder-10;
         }
     }
 

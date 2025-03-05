@@ -18,7 +18,7 @@ public class GhostEffect : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        startPos = transform.position;
+        startPos = transform.localPosition;
 
         // 上下浮动：以初始位置为基准，向上移动 floatDistance，然后往下往返循环
         spriteRenderer.transform.DOLocalMoveY(startPos.y + floatDistance, floatDuration)
