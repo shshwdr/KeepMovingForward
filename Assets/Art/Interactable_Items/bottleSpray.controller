@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 66606b9c63f200048b7912bd562c9891, type: 2}
+  m_Motion: {fileID: 7400000, guid: b4cc66802afd94046a03f47aab2e1faf, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -105,7 +105,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: beach-ball
+  m_Name: bottleSpray
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Use
