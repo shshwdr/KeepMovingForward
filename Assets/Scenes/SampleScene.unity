@@ -2158,7 +2158,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 1643592846}
+  m_Follow: {fileID: 1508448555}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5
@@ -8671,7 +8671,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 1643592846}
+  m_Follow: {fileID: 1508448555}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5
@@ -8700,7 +8700,7 @@ Transform:
   m_GameObject: {fileID: 447478035}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.389999, y: -8.63, z: -10.019252}
+  m_LocalPosition: {x: -15.389999, y: -8.51, z: -10.019252}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22945,6 +22945,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7667193992369353589, guid: 52d1fe2c7f1c67943a317a6f2e3a13c7, type: 3}
   m_PrefabInstance: {fileID: 1876786231}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1508448555 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2725540938795934454, guid: 52d1fe2c7f1c67943a317a6f2e3a13c7, type: 3}
+  m_PrefabInstance: {fileID: 1876786231}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1541666437 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1614229805409000177, guid: b11dc7989c60a8248ae69d8a2619b7a6, type: 3}
@@ -28237,7 +28242,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1082955254123141867, guid: cd89d9d43939cf547aef17b78e691e75, type: 3}
       propertyPath: commentName
-      value: sister1
+      value: characterB_lvl1
       objectReference: {fileID: 0}
     - target: {fileID: 7490954027759555716, guid: cd89d9d43939cf547aef17b78e691e75, type: 3}
       propertyPath: m_Name
@@ -28743,7 +28748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8975025103662440174, guid: 72f0382581334c44fba57560061c2217, type: 3}
       propertyPath: commentName
-      value: brother1
+      value: characterA_lvl1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

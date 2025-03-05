@@ -8,15 +8,15 @@ picture,"We're so happy here, simply jamming together"
 picture,Best family ever!
 characterA_lvl1,Hmm... Maybe we can cheer them up somehow?
 characterA_lvl1_finished,You're never fully dressed without a smile!
-characterA_lvl1_correct,N/A
-characterA_lvl1_wrong,N/A
-characterA_lvl1_finished_wrong,N/A
+characterA_lvl1_correct,"Ah, the music we shared together before"
+characterA_lvl1_wrong,Leave me alone
+characterA_lvl1_finished_wrong,You are a gift
 characterB_lvl1,"They seem overwhelmed... 
 Let's help packing up the trophies!"
 characterB_lvl1_finished,At least we brought them a bit of relief
-characterB_lvl1_correct,N/A
-characterB_lvl1_wrong,N/A
-characterB_lvl1_finished_wrong,N/A
+characterB_lvl1_correct,Did I pack them? I don't remember
+characterB_lvl1_wrong,Leave me alone
+characterB_lvl1_finished_wrong,You are a gift
 recorder_lvl1,Nothing like a little music to feel better
 recorder_lvl2,Music can be a great way to start the day
 cupboardDoor,Open sesamy!
@@ -41,9 +41,9 @@ prelog1_brother,"It's like he is still sitting in that sofa, waiting for us comi
 prelog2_sister,That's.. the ball that he played a lot with him.
 prelog3_sister,"I can't, I can't understand the whole thing!"
 prelog5_ghost,"Aha! Wait? What? Where am I? I thought I finally hit the ""Respawn"" Button!"
-prelog5_ghost,Am I.. A ghost now? What the…
+prelog5_ghost,"Am I, a ghost now? What the. . ."
 prelog5_ghost,Oh hey you poor child.. Do you want to play again?
-prelog5_ghost,I really don't know if we can do this again…
+prelog5_ghost,I really don't know if we can do this again
 prelog5_ghost2,Wow! It works!
 prelog6_brother,We still have lots of work to do here
 prelog6_sister,"I know, I just , I can't focus on them"
