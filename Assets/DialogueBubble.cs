@@ -19,6 +19,7 @@ public class DialogueBubble : MonoBehaviour
 
 
             dialogueDotween = DOTween.Sequence();
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_ghost_dialogue");
             dialogueDotween.Append(dialogue.DOFade(1f, 0.5f));
             dialogueDotween.AppendInterval(5);
             if (willHide)

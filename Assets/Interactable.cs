@@ -62,10 +62,13 @@ public class Interactable : MonoBehaviour
             case "spray":
                 
                 GetComponent<Rigidbody2D>().isKinematic = false;
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_ghost_interact");
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_item_fall");
 
                 break;
             case "cupboardDoor":
                 gameObject.SetActive(false);
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_cupboard_door_open");
                 break;
             case "tissueBox":
                 FindObjectOfType<PlayerController>().tissue.SetActive(true);
@@ -86,6 +89,7 @@ public class Interactable : MonoBehaviour
 
     IEnumerator pick(DogClickController dog)
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_pick_item");
         yield return new WaitForSeconds(0.6f);
         
         transform.rotation = quaternion.identity;
@@ -123,6 +127,7 @@ public class Interactable : MonoBehaviour
                 break;
             
             case "firstBall":
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_pick_item");
                 PlayPrelog.Instance.caughtBall = true;
                 dog.animator.SetTrigger("pick");
                     
@@ -138,8 +143,9 @@ public class Interactable : MonoBehaviour
                 case "trophy":
                 case "duster":
                 case "spray":
-                
-                    dog.animator.SetTrigger("pick");
+
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_pick_item");
+                dog.animator.SetTrigger("pick");
                     
                     dog.interactionTime = 0.5f;
                 if (dog.holdingItem)

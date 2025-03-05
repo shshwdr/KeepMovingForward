@@ -15,6 +15,8 @@ public class Mirror : MonoBehaviour
         GetComponent<Interactable>().commentName = "mirrorClean";
         GetComponent<Interactable>().actionName = "";
         GetComponent<HumanRequest>().finishRequest();
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_clean_mirror");
     }
 
     public void AddWater()
