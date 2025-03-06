@@ -31,12 +31,12 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         dialogue = GetComponentInChildren<DialogueBubble>();
+        startPosition = transform.position;
     }
 
     private void Start()
     {
         
-        startPosition = transform.position;
     }
 
     public void StartLevel(Transform day)
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            transform.position = day.position;
+            transform.position = startPosition;
         }
     }
 

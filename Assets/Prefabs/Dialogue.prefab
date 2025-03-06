@@ -162,7 +162,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &7919995636512779146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 7704893073337913839}
+  backgroundRect: {fileID: 390313553671841456}
 --- !u!1001 &6716885184474234531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -251,11 +252,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8893114584939826472, guid: d5ac3643fb3169f4ca3f0d6dceca3bf5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 8893114584939826472, guid: d5ac3643fb3169f4ca3f0d6dceca3bf5, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 8893114584939826472, guid: d5ac3643fb3169f4ca3f0d6dceca3bf5, type: 3}
       propertyPath: m_LocalPosition.x

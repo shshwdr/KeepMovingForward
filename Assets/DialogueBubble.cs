@@ -15,6 +15,7 @@ public class DialogueBubble : MonoBehaviour
     private float waitTimer = 0;
     public void Show(string dialogueId,bool willHide = true)
     {
+        tmpText = dialogue.GetComponentInChildren<TMP_Text>();
         if (waitTimer > 0)
         {
             return;
@@ -39,7 +40,10 @@ public class DialogueBubble : MonoBehaviour
             var texts = CSVLoader.Instance.DialogueInfoMap[dialogueId];
             var index = CSVLoader.Instance.dialogueIndex[dialogueId];
 
-            dialogue.GetComponentInChildren<TMP_Text>().text = texts[index].text;
+            dialogue.GetComponentInChildren<TMP_Text>().text = "";
+            StopAllCoroutines();
+            //AdjustBackground(texts[index].text);
+            StartCoroutine(ShowText(texts[index].text));
             index++;
             
             
@@ -55,11 +59,36 @@ public class DialogueBubble : MonoBehaviour
         }
     }
 
+    public RectTransform backgroundRect;
+    private TMP_Text tmpText;
+    private float delay = 0.02f;
+    IEnumerator ShowText(string fullText)
+    {
+        tmpText.text = "";
+        foreach (char letter in fullText)
+        {
+            tmpText.text += letter;
+            yield return new WaitForSeconds(delay);
+            //AdjustBackground();
+        }
+    }
     private void Update()
     {
         if (waitTimer > 0)
         {
             waitTimer -= Time.deltaTime;
+        }
+        
+        
+    }
+    Vector2 padding = new Vector2(20, 20);
+    float maxTextWidth = 100f;
+    void AdjustBackground(string str)
+    {
+        Vector2 textSize = tmpText.GetPreferredValues(str, maxTextWidth, Mathf.Infinity);
+        if (backgroundRect != null)
+        {
+            backgroundRect.sizeDelta = textSize + padding;
         }
     }
 }

@@ -27,7 +27,7 @@ public class DogClickController : MonoBehaviour
     public Interactable holdingItem;
     [HideInInspector]
     public Animator animator;
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         collider = GetComponentInChildren<Collider2D>();
@@ -43,7 +43,7 @@ public class DogClickController : MonoBehaviour
         }
         else
         {
-            transform.position = day.position;
+            transform.position = startPosition;
         }
     }
 
