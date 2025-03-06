@@ -26,6 +26,10 @@ public class SceneManager : Singleton<SceneManager>
         Nextday.GetComponentInChildren<Button>().onClick.AddListener(() => { NextDay();});
     }
 
+    public Transform CurrentDay()
+    {
+        return days[currentDay].transform;
+    }
     void LoadDay()
     {
         

@@ -97,22 +97,6 @@ public class Interactable : MonoBehaviour
 
     }
 
-    IEnumerator pick(DogClickController dog)
-    {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_pick_item");
-        yield return new WaitForSeconds(0.6f);
-        
-        transform.rotation = quaternion.identity;
-        transform.parent = dog.transform;
-        transform.position = dog.mouth.position;
-        GetComponent<Rigidbody2D>().simulated = false;
-        GetComponent<Rigidbody2D>().isKinematic = true;
-        GetComponentInChildren<Collider2D>().enabled = false;
-        sprite.sortingLayerName = "Dog";
-        sprite.sortingOrder = -1;
-        dog.holdingItem = this;
-    }
-    
     public void DogInteract(DogClickController dog)
     {
         switch (actionName)
@@ -223,7 +207,25 @@ public class Interactable : MonoBehaviour
         GetComponentInChildren<Collider2D>().enabled = true;
         sprite.sortingLayerID = sortLayer;
         sprite.sortingOrder = sortOrder;
-        transform.parent = null;
+        GetComponent<Rigidbody2D>().simulated = true;
+        transform.parent = SceneManager.Instance.CurrentDay();
         dog.holdingItem = null;
     }
+    
+    IEnumerator pick(DogClickController dog)
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_pick_item");
+        yield return new WaitForSeconds(0.6f);
+        
+        transform.rotation = quaternion.identity;
+        transform.parent = dog.transform;
+        transform.position = dog.mouth.position;
+        GetComponent<Rigidbody2D>().simulated = false;
+        GetComponent<Rigidbody2D>().isKinematic = true;
+        GetComponentInChildren<Collider2D>().enabled = false;
+        sprite.sortingLayerName = "Dog";
+        sprite.sortingOrder = -1;
+        dog.holdingItem = this;
+    }
+
 }
