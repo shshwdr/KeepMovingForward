@@ -43,8 +43,8 @@ prelog5_ghost,I can't do it on my own
 prelog5_dog,^^
 tutorial_1,Left Click: Ghost interaction
 tutorial_2,Right Click: Dog interaction
-epilog1_ghost,Thank you Lucy
-epilog1_ghost,For helping them move on
+epilog0_ghost,Thank you Lucy
+epilog0_ghost,For helping them move on
 epilog1_ghost,Now...
 epilog1_ghost,You need to move on too
 epilog2_ghost,Cherish our shared memories
@@ -52,6 +52,6 @@ epilog2_ghost,And...
 epilog2_ghost,Move forward to make new ones
 epilog3_ghost,You're a good dog Lucy
 epilog3_ghost,The best there is
-epilog3_ghost,...
-epilog3_ghost,Keep being you
-epilog3_ghost,Keep moving forward!
+epilog4_ghost,...
+epilog5_ghost,Keep being you
+epilog5_ghost,Keep moving forward!

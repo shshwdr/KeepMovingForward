@@ -20,6 +20,8 @@ public class DogClickController : MonoBehaviour
     private bool facingRight = true;
     public Transform mouth;
 
+    public Vector3 startPosition;
+
     public float interactionTime = 0;
 
     public Interactable holdingItem;
@@ -30,6 +32,19 @@ public class DogClickController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         collider = GetComponentInChildren<Collider2D>();
         animator = GetComponentInChildren<Animator>();
+        startPosition = transform.position;
+    }
+
+    public void StartLevel(Transform day)
+    {
+        if (day.Find("dogStart"))
+        {
+            transform.position = day.Find("dogStart").position;
+        }
+        else
+        {
+            transform.position = day.position;
+        }
     }
 
     void Update()

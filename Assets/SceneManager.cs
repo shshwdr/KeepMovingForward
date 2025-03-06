@@ -35,7 +35,11 @@ public class SceneManager : Singleton<SceneManager>
         }
         days[currentDay].SetActive(true);
 
+        PlayPrelog.Instance.player.GetComponent<PlayerController>().StartLevel(days[currentDay].transform);
+        PlayPrelog.Instance.dog.GetComponent<DogClickController>().StartLevel(days[currentDay].transform);
+
         PlayPrelog.Instance.ShowPrelog();
+        PlayPrelog.Instance.ShowEpilog();
     }
 
     // Update is called once per frame

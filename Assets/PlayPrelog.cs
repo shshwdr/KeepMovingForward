@@ -1,13 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayPrelog : Singleton<PlayPrelog>
 {
     public GameObject dog;
     public GameObject player;
     public GameObject[] prelogList;
+    public GameObject[] epilogList;
 
     private bool mouseClick = false;
     //public float waitTime = 5;
@@ -19,6 +23,16 @@ public class PlayPrelog : Singleton<PlayPrelog>
 
     public GameObject tutorial1;
     public GameObject tutorial2;
+
+    public GameObject thanks;
+
+    private void Start()
+    {
+        thanks.GetComponentInChildren<Button>().onClick.AddListener(() =>
+        {
+            GameManager.Instance.Restart();
+        });
+    }
 
     public void dropBall()
     {
@@ -44,11 +58,31 @@ public class PlayPrelog : Singleton<PlayPrelog>
                 ob.SetActive(false);
             }
             
-            StartCoroutine(ShowOne());
+            StartCoroutine(ShowOne(prelogList));
         }
     }
 
-    IEnumerator ShowOne()
+    public void ShowEpilog()
+    {
+
+        if (SceneManager.Instance.currentDay == 4)
+        {
+            
+        isPlayingPrelog = true;
+        index = 0;
+        dog.SetActive(false);
+        player.SetActive(false);
+            
+        foreach (var ob in epilogList)
+        {
+            ob.SetActive(false);
+        }
+            
+        StartCoroutine(ShowOne(epilogList));
+        }
+    }
+
+    IEnumerator ShowOne(GameObject[] prelogList)
     {
         if (index < prelogList.Length)
         {
@@ -80,7 +114,7 @@ public class PlayPrelog : Singleton<PlayPrelog>
             }
 
 
-            if (index == 4)
+            if (index == 4 && prelogList == this.prelogList)
             {
                 isPlayingPrelog = false;
                 
@@ -93,16 +127,34 @@ public class PlayPrelog : Singleton<PlayPrelog>
             
             prelogList[index].SetActive(false);
             index++;
-            StartCoroutine(ShowOne());
+            StartCoroutine(ShowOne(prelogList));
         }
         else
         {
-            player.SetActive(true);
-            dog.SetActive(true);
-            SceneManager.Instance.NextDay();
+            if (prelogList == this.prelogList)
+            {
+                
+                player.SetActive(true);
+                dog.SetActive(true);
+                SceneManager.Instance.NextDay();
+            }
+            else
+            {
+                prelogList[index-1].SetActive(true);
+                prelogList[index-1].GetComponentInChildren<PlayerController>().GetComponentInChildren<SpriteRenderer>()
+                    .DOFade(0, 10f);
+                StartCoroutine(test());
+                thanks.SetActive(true);
+            }
         }
     }
 
+    IEnumerator test()
+    {
+        yield return new WaitForSeconds(10);
+        
+        epilogList[index-1].SetActive(false);
+    }
     // Update is called once per frame
     void Update()
     {

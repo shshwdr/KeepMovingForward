@@ -27,9 +27,28 @@ public class PlayerController : MonoBehaviour
 
     private Interactable currentOver;
 
+    public Vector3 startPosition;
     private void Awake()
     {
         dialogue = GetComponentInChildren<DialogueBubble>();
+    }
+
+    private void Start()
+    {
+        
+        startPosition = transform.position;
+    }
+
+    public void StartLevel(Transform day)
+    {
+        if (day.Find("ghostStart"))
+        {
+            transform.position = day.Find("ghostStart").position;
+        }
+        else
+        {
+            transform.position = day.position;
+        }
     }
 
     void Update()
