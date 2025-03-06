@@ -6,7 +6,14 @@ public class GameManager : Singleton<GameManager>
 {
     public GameObject ghostCamera;
 
+    private FMOD.Studio.EventInstance gameplayMusic;
     // Start is called before the first frame update
+
+    void Start()
+    {
+        gameplayMusic = FMODUnity.RuntimeManager.CreateInstance("event:/Music/mus_gameplay_level_1");
+        gameplayMusic.start();
+    }
     void Awake()
     {
         CSVLoader.Instance.Init();
@@ -37,5 +44,7 @@ public class GameManager : Singleton<GameManager>
     public void Restart()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        gameplayMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        gameplayMusic.release();
     }
 }

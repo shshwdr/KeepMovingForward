@@ -52,8 +52,7 @@ public class HumanRequest : MonoBehaviour
         if (finished)
         {
             return;         
-        }
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_finish_task");
+        }        
         finished = true;
 
         if (dialogue)
@@ -64,6 +63,7 @@ public class HumanRequest : MonoBehaviour
             
             GetComponent<Interactable>().commentName = GetComponent<Interactable>().commentName + "_finished";
             commentName = GetComponent<Interactable>().commentName;
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_finish_task");
         }
 
         if (requestName == "day1Record")

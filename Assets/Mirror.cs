@@ -24,6 +24,7 @@ public class Mirror : MonoBehaviour
         water.SetActive(true);
         GetComponent<Interactable>().commentName = "mirrorWater";
         GetComponent<Interactable>().actionName = "mirrorWater";
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_water_splash");
     }
     // Start is called before the first frame update
     void Start()
