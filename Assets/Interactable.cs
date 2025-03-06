@@ -68,7 +68,11 @@ public class Interactable : MonoBehaviour
                     GetComponent<Rigidbody2D>().isKinematic = false;
                     FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_ghost_interact");
 
-                    commentName += "_dropped";
+                    if (CSVLoader.Instance.dialogueIndex.ContainsKey(commentName + "_dropped"))
+                    {
+                        
+                        commentName += "_dropped";
+                    }
                 }
 
                 break;
