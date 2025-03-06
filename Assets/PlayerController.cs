@@ -187,10 +187,10 @@ public class PlayerController : MonoBehaviour
                 
                 if (targetItem != null)
                 {
+                    dialogue.Show(targetItem.commentName);
                     targetItem.Interact();
 
                     
-                        dialogue.Show(targetItem.commentName);
                     
                     targetItem = null;
                 }

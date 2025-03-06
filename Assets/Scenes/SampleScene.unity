@@ -18569,7 +18569,7 @@ PrefabInstance:
     - target: {fileID: 6699207507295009324, guid: b926e00d4e938ba40988496d3993b920, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4cd8f4966980fb94e98679962d0b7fcf, type: 3}
+      objectReference: {fileID: 21300000, guid: 134a04204a0554147abd59a0f3dd87d4, type: 3}
     - target: {fileID: 8553799962517342777, guid: b926e00d4e938ba40988496d3993b920, type: 3}
       propertyPath: name
       value: firstBall

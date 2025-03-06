@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -8,9 +10,18 @@ public class DialogueBubble : MonoBehaviour
 {
     public CanvasGroup dialogue;
     private Sequence dialogueDotween;
-    
+
+    private float waitTime = 0.3f;
+    private float waitTimer = 0;
     public void Show(string dialogueId,bool willHide = true)
     {
+        if (waitTimer > 0)
+        {
+            return;
+        }
+
+        waitTimer = waitTime;
+        
         if (dialogueId != "" &&
             CSVLoader.Instance.dialogueIndex.ContainsKey(dialogueId))
         {
@@ -41,6 +52,14 @@ public class DialogueBubble : MonoBehaviour
             }
 
             CSVLoader.Instance.dialogueIndex[dialogueId] = index;
+        }
+    }
+
+    private void Update()
+    {
+        if (waitTimer > 0)
+        {
+            waitTimer -= Time.deltaTime;
         }
     }
 }

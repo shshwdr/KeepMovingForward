@@ -61,9 +61,15 @@ public class Interactable : MonoBehaviour
             case "duster":
             case "dust":
             case "spray":
-                
-                GetComponent<Rigidbody2D>().isKinematic = false;
-                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_ghost_interact");               
+
+                if (GetComponent<Rigidbody2D>().isKinematic)
+                {
+                    
+                    GetComponent<Rigidbody2D>().isKinematic = false;
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_ghost_interact");
+
+                    commentName += "_dropped";
+                }
 
                 break;
             case "cupboardDoor":
