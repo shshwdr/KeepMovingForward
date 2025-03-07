@@ -110,6 +110,11 @@ public class HumanRequest : MonoBehaviour
                copy.transform.localScale = new Vector3(-copy.transform.localScale.x, copy.transform.localScale.y, copy.transform.localScale.z);
            }
        }
+
+       if (GetComponent<GroupDissolveEffect>())
+       {
+           GetComponent<GroupDissolveEffect>().StartDissolveEffect();
+       }
     }
 
     public void wrongDeliver()

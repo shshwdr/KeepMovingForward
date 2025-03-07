@@ -15,13 +15,18 @@ public class GroupDissolveEffect : MonoBehaviour
     [Tooltip("噪声纹理")]
     public Texture2D noiseTexture;
 
-    private SpriteRenderer[] spriteRenderers;
+    public SpriteRenderer[] spriteRenderers;
+    
 
     void Start()
     {
+        if (SceneManager.Instance.currentDay == 0 || SceneManager.Instance.currentDay > 3)
+        {
+            return;
+        }
         // 获取所有子物体的 SpriteRenderer
-        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
-
+        //spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        
         // 为每个 SpriteRenderer 分配新的材质实例，并使用自定义 Shader
         foreach (var sr in spriteRenderers)
         {
@@ -29,7 +34,7 @@ public class GroupDissolveEffect : MonoBehaviour
             // 复制原有纹理
             newMat.SetTexture("_MainTex", sr.material.GetTexture("_MainTex"));
             newMat.SetTexture("_NoiseTex", noiseTexture);
-            newMat.SetFloat("_Dissolve", 0f); // 初始全灰度
+            newMat.SetFloat("_Dissolve", 1); // 初始全灰度
             newMat.SetFloat("_EdgeSoft", edgeSoft);
             sr.material = newMat;
         }

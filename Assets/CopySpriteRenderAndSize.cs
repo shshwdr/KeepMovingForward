@@ -13,7 +13,18 @@ public class CopySpriteRenderAndSize : MonoBehaviour
         if (spriteRenderer != null)
         {
              spriteRenderer.sprite = spriteRendererCopiedFrom.sprite;
-             spriteRenderer.transform.localScale = spriteRendererCopiedFrom.transform.localScale + new Vector3(0.1f,0.1f,0);
+             
+             SpriteRenderer sr = spriteRenderer;
+                 // 使用 bounds 来获取世界单位下的尺寸
+                 float width = sr.sprite.bounds.size.x;
+                 float height = sr.sprite.bounds.size.y;
+                 float ratio = width / height;
+                 //Debug.Log("Sprite 的高度宽度比例为: " + ratio);
+             
+             
+             var scaleAdd = new Vector3(0.1f, 0.1f * ratio, 0);
+             
+             spriteRenderer.transform.localScale = spriteRendererCopiedFrom.transform.localScale +scaleAdd;
              spriteRenderer.sortingLayerID = spriteRendererCopiedFrom.sortingLayerID;
              spriteRenderer.sortingOrder = spriteRendererCopiedFrom.sortingOrder-10;
         }
