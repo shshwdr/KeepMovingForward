@@ -46,6 +46,7 @@ public class GameManager : Singleton<GameManager>
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         gameplayMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         gameplayMusic.release();
+        SceneManager.Instance.FinalMusicStop();
     }
 
     public void StopMusic()
