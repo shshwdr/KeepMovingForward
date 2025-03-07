@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private Interactable targetItem;
 
     private Vector3 lastPosition;
-    private bool facingRight = true;
+    public bool facingRight = true;
 
     DialogueBubble dialogue;
 
