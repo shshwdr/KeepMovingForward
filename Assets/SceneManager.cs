@@ -12,6 +12,8 @@ public class SceneManager : Singleton<SceneManager>
     public int startDay = 1;
     public GameObject[] days;
 
+    private FMOD.Studio.EventInstance finalMusic;
+
     public DayController dayController;
     // Start is called before the first frame update
     void Awake()
@@ -23,7 +25,7 @@ public class SceneManager : Singleton<SceneManager>
     {
         LoadDay();
         
-        Nextday.GetComponentInChildren<Button>().onClick.AddListener(() => { NextDay();});
+        Nextday.GetComponentInChildren<Button>().onClick.AddListener(() => { NextDay();});     
     }
 
     public Transform CurrentDay()
@@ -44,6 +46,11 @@ public class SceneManager : Singleton<SceneManager>
 
         PlayPrelog.Instance.ShowPrelog();
         PlayPrelog.Instance.ShowEpilog();
+
+        if (currentDay > 3)
+        {
+            Invoke("FinalMusic", 2);
+        }
     }
 
     // Update is called once per frame
@@ -59,6 +66,11 @@ public class SceneManager : Singleton<SceneManager>
         }else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
              NextDay();
+        }
+
+        if (currentDay > 3)
+            {
+            GameManager.Instance.StopMusic();          
         }
     }
 
@@ -92,5 +104,11 @@ public class SceneManager : Singleton<SceneManager>
             LoadDay();
             
         }
+    }
+
+    private void FinalMusic()
+    {
+        finalMusic = FMODUnity.RuntimeManager.CreateInstance("event:/Music/mus_gameplay_level_4");
+        finalMusic.start();
     }
 }

@@ -47,4 +47,10 @@ public class GameManager : Singleton<GameManager>
         gameplayMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         gameplayMusic.release();
     }
+
+    public void StopMusic()
+    {
+        gameplayMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        gameplayMusic.release();
+    }
 }
