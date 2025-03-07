@@ -20856,7 +20856,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8226458486590157620, guid: d5ac3643fb3169f4ca3f0d6dceca3bf5, type: 3}
       propertyPath: m_text
-      value: Press Space to switch between ghost camera and dog camera
+      value: Press Space to toggle between the ghost and dog camera views
       objectReference: {fileID: 0}
     - target: {fileID: 8226458486590157620, guid: d5ac3643fb3169f4ca3f0d6dceca3bf5, type: 3}
       propertyPath: m_fontSize
