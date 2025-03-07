@@ -41,11 +41,11 @@ public class PlayerController : MonoBehaviour
 
     public void StartLevel(Transform day)
     {
-        if (day.Find("ghostStart"))
-        {
-            transform.position = day.Find("ghostStart").position;
-        }
-        else
+        // if (day.Find("ghostStart"))
+        // {
+        //     transform.position = day.Find("ghostStart").position;
+        // }
+        // else
         {
             transform.position = startPosition;
         }
