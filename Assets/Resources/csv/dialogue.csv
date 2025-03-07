@@ -1,36 +1,45 @@
 id,text
-dog_out_of_reach,?
+dog_no_interaction,?
 cd_lvl1,That should help lightening the mood!
 cd_lvl2_yellow,Great music on that one!
-cd_lvl2_yellow_dropped,I hope it still works
+cd_lvl2_yellow_dropped,I hope it still works.
 cd_lvl2_red,Probably my favorite album!
 cd_lvl2_purple,"Oh, this is a classic!"
 poster_lvl2,That was our favorite band!
-picture,"We're so happy here, simply jamming together"
-picture,Best family ever!
-characterA_lvl1,Hmm... Maybe we can cheer them up somehow?
-characterA_lvl1_finished,You're never fully dressed without a smile!
-characterA_lvl1_correct,[PLACEHOLDER]
-characterA_lvl1_wrong,[PLACEHOLDER]
-characterA_lvl1_finished_wrong,[PLACEHOLDER]
-characterB_lvl1,"They seem overwhelmed... 
+picture,A really sweet memory...
+picture,Best family I could have wished for.
+characterA_lvl1,Hmm... Maybe we can him them up somehow?
+characterA_lvl1_finished,He seems more relaxed.
+characterA_lvl1_correct,"Thanks Lucy, I needed it."
+characterA_lvl1_wrong,Not now Lucy...
+characterA_lvl1_finished_wrong,You're a good dog.
+characterA_lvl2,Looks like he needs help cleaning...
+characterA_lvl2_finished,Being able to count on you makes him relieved
+characterA_lvl2_correct,You're the best!
+characterA_lvl2_wrong,"Later Lucy, I'm doing something."
+characterA_lvl2_finished_wrong,I'm lucky to have you here.
+characterA_lvl3,He's struggling to find all the records
+characterA_lvl3_finished,Your talents really suprised him
+characterA_lvl3_correct,"Impressive, thank you!"
+characterA_lvl3_wrong,Did you see some records Lucy ?
+characterA_lvl3_finished_wrong,How do you do all this?
+characterB_lvl1,"She seems overwhelmed... 
 Let's help packing up the trophies!"
-characterB_lvl1_finished,At least we brought them a bit of relief
-characterB_lvl1_correct,[PLACEHOLDER]
-characterB_lvl1_wrong,[PLACEHOLDER]
-characterB_lvl1_finished_wrong,[PLACEHOLDER]
+characterB_lvl1_finished,At least we brought her a bit of relief
+characterB_lvl1_correct,Thank you for helping.
+characterB_lvl1_wrong,...
+characterB_lvl1_finished_wrong,"Wow, you were clearly well...trained."
 recorder_lvl1,Nothing like a little music to feel better
 recorder_lvl2,Music can be a great way to start the day
 cupboardDoor,Open sesamy!
 cupboardDoor,What's in there again?
 cupboardDoor,"Oh, I forgot that was here!"
 cupboardDoor,Final door!
-trophy_drop,Down you go!
+trophy,Down you go!
 trophy_dropped,No trophy can bring me as much pride as you all do
 trophyBox,Looks like the trophies should be packed here
 dust,"Dun, dun, dun..."
 dust,Another one bites the dust!
-dust,Guess that makes me dust in the wind
 duster,Ghostdusters!
 duster,Can you pick it up?
 duster,You can probably clean the living room dust with that
