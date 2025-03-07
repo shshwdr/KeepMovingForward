@@ -111,4 +111,10 @@ public class SceneManager : Singleton<SceneManager>
         finalMusic = FMODUnity.RuntimeManager.CreateInstance("event:/Music/mus_gameplay_level_4");
         finalMusic.start();
     }
+
+    public void FinalMusicStop()
+    {
+        finalMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        finalMusic.release();
+    }
 }
