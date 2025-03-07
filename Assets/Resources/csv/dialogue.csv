@@ -8,7 +8,7 @@ cd_lvl2_purple,"Oh, this is a classic!"
 poster_lvl2,That was our favorite band!
 picture,A really sweet memory...
 picture,Best family I could have wished for.
-characterA_lvl1,Hmm... Maybe we can cheer them up somehow?
+characterA_lvl1,Hmm... Maybe we can cheer him up somehow?
 characterA_lvl1_finished,He seems more relaxed.
 characterA_lvl1_correct,"Thanks Lucy, I needed it."
 characterA_lvl1_wrong,Not now Lucy...
@@ -19,27 +19,27 @@ characterA_lvl2_correct,You're the best!
 characterA_lvl2_wrong,"Later Lucy, I'm doing something."
 characterA_lvl2_finished_wrong,I'm lucky to have you here.
 characterB_lvl2,This poster brings back so many memories for her
-characterB_lvl2_finished,This is the CD on the poster!
-characterB_lvl2_correct,This song!
+characterB_lvl2_finished,So many memories linked to that tune...
+characterB_lvl2_correct,It was our favorite!..
 characterB_lvl2_wrong,"No, not now.."
-characterB_lvl2_finished_wrong,I'm lucky to have you here.
-characterA_lvl3,She's struggling to find all the records
-characterA_lvl3_finished,Your talents really suprised her
+characterB_lvl2_finished_wrong,"That means a lot Lucy, thank you."
+characterA_lvl3,He's struggling to find all the records
+characterA_lvl3_finished,Your talents really suprised him
 characterA_lvl3_correct,"Impressive, thank you!"
 characterA_lvl3_wrong,Did you see some records Lucy ?
 characterA_lvl3_finished_wrong,How do you do all this?
 characterB_lvl3,A clean mirror might help him feel a little better
 characterB_lvl3_finished,Sparkling!
 characterB_lvl3_correct,"Impressive, thank you!"
-characterB_lvl3_wrong,…
-characterB_lvl3_finished_wrong,I need to smile more.
+characterB_lvl3_wrong,â€¦
+characterB_lvl3_finished_wrong,Maybe the future is not so grim after all...
 characterB_lvl1,She seems overwhelmed... Let's help packing up the trophies!
 characterB_lvl1_finished,At least we brought her a bit of relief
 characterB_lvl1_correct,Thank you for helping.
 characterB_lvl1_wrong,...
 characterB_lvl1_finished_wrong,"Wow, you were clearly well...trained."
 recorder_lvl1,Nothing like a little music to feel better
-recorder_lvl2,Music can be a great way to start the day
+recorder_lvl2,I loved sharing musical moments with them
 cupboardDoor,Open sesamy!
 cupboardDoor,What's in there again?
 cupboardDoor,"Oh, I forgot that was here!"
@@ -54,11 +54,11 @@ duster,Can you pick it up?
 duster,You can probably clean the living room dust with that
 mirrorDirty,"I... can't see anything, it's too dirty"
 mirrorWater,I should pick up a tissue to clean it up
-mirrorClean,AAAAAAA... a ghost
-tissueBox,Perfect to wipe off some stains
+mirrorClean,AAAAAHHH... a ghost.
+tissueBox,Perfect to wipe off some stains!
 spray,"Windows, mirrors... it cleans everything!"
 prelog5_ghost,Do you want to play ball one last time?
-prelog6_ghost,Good boy.
+prelog6_ghost,Good girl.
 prelog7_ghost,Please help them move on
 prelog7_ghost,I can't do it on my own
 prelog8_ghost,Thank you.
