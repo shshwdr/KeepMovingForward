@@ -8,7 +8,7 @@ cd_lvl2_purple,"Oh, this is a classic!"
 poster_lvl2,That was our favorite band!
 picture,A really sweet memory...
 picture,Best family I could have wished for.
-characterA_lvl1,Hmm... Maybe we can him them up somehow?
+characterA_lvl1,Hmm... Maybe we can cheer them up somehow?
 characterA_lvl1_finished,He seems more relaxed.
 characterA_lvl1_correct,"Thanks Lucy, I needed it."
 characterA_lvl1_wrong,Not now Lucy...
@@ -18,13 +18,22 @@ characterA_lvl2_finished,Being able to count on you makes him relieved
 characterA_lvl2_correct,You're the best!
 characterA_lvl2_wrong,"Later Lucy, I'm doing something."
 characterA_lvl2_finished_wrong,I'm lucky to have you here.
-characterA_lvl3,He's struggling to find all the records
-characterA_lvl3_finished,Your talents really suprised him
+characterB_lvl2,This poster brings back so many memories for her
+characterB_lvl2_finished,This is the CD on the poster!
+characterB_lvl2_correct,This song!
+characterB_lvl2_wrong,"No, not now.."
+characterB_lvl2_finished_wrong,I'm lucky to have you here.
+characterA_lvl3,She's struggling to find all the records
+characterA_lvl3_finished,Your talents really suprised her
 characterA_lvl3_correct,"Impressive, thank you!"
 characterA_lvl3_wrong,Did you see some records Lucy ?
 characterA_lvl3_finished_wrong,How do you do all this?
-characterB_lvl1,"She seems overwhelmed... 
-Let's help packing up the trophies!"
+characterB_lvl3,A clean mirror might help him feel a little better
+characterB_lvl3_finished,Sparkling!
+characterB_lvl3_correct,"Impressive, thank you!"
+characterB_lvl3_wrong,…
+characterB_lvl3_finished_wrong,I need to smile more.
+characterB_lvl1,She seems overwhelmed... Let's help packing up the trophies!
 characterB_lvl1_finished,At least we brought her a bit of relief
 characterB_lvl1_correct,Thank you for helping.
 characterB_lvl1_wrong,...

@@ -203,6 +203,14 @@ public class Interactable : MonoBehaviour
                 GetComponent<HumanRequest>().wrongDeliver();
             }
         }
+        else
+        {
+            if (GetComponent<HumanRequest>())
+            {
+                
+                GetComponent<HumanRequest>().wrongDeliver();
+            }
+        }
 
     }
 

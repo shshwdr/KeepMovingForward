@@ -18,6 +18,8 @@ public class HumanRequest : MonoBehaviour
     private int getItemCount = 0;
     public GameObject finishedItem;
     public GameObject unfinishedItem;
+
+    public bool rotateWhenSatisfied;
     private void Awake()
     {
         dialogue = GetComponentInChildren<DialogueBubble>();
@@ -86,6 +88,10 @@ public class HumanRequest : MonoBehaviour
         if (finishedItem)
         {
             finishedItem.SetActive(true);
+            if (GetComponentInChildren<CopySpriteRenderAndSize>(true))
+            {
+                GetComponentInChildren<CopySpriteRenderAndSize>(true).spriteRendererCopiedFrom = finishedItem.GetComponent<SpriteRenderer>();
+            }
         }
 
         if (nextRequestToFinish)
@@ -94,6 +100,16 @@ public class HumanRequest : MonoBehaviour
         }
 
        SceneManager.Instance. CheckFinish();
+
+       if (rotateWhenSatisfied)
+       {
+           finishedItem.transform.localScale = new Vector3(-finishedItem.transform.localScale.x, finishedItem.transform.localScale.y, finishedItem.transform.localScale.z);
+           if (GetComponentInChildren<CopySpriteRenderAndSize>(true))
+           {
+               var copy = GetComponentInChildren<CopySpriteRenderAndSize>(true);
+               copy.transform.localScale = new Vector3(-copy.transform.localScale.x, copy.transform.localScale.y, copy.transform.localScale.z);
+           }
+       }
     }
 
     public void wrongDeliver()

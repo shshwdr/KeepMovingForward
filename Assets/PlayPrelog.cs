@@ -103,6 +103,7 @@ public class PlayPrelog : Singleton<PlayPrelog>
 
             mouseClick = false;
             prelogList[index].SetActive(true);
+            prelogList[index].GetComponent<GroupFade>()?.FadeIn();
             bool hasNextLine = true;
 
             while (hasNextLine)
@@ -139,7 +140,13 @@ public class PlayPrelog : Singleton<PlayPrelog>
             }
             
             
-            prelogList[index].SetActive(false);
+            //prelogList[index].SetActive(false);
+
+            if (!prelogList[index].GetComponent<GroupFade>())
+            {
+                prelogList[index].SetActive(false);
+            }
+            prelogList[index].GetComponent<GroupFade>()?.FadeOut();
             index++;
             StartCoroutine(ShowOne(prelogList));
         }

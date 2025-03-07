@@ -1271,6 +1271,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 647272828983385384, guid: b926e00d4e938ba40988496d3993b920, type: 3}
   m_PrefabInstance: {fileID: 7536096015006068972}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8012441959885622890 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 550704585279716998, guid: b926e00d4e938ba40988496d3993b920, type: 3}
+  m_PrefabInstance: {fileID: 7536096015006068972}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8562183142842053818 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2181830544237282390, guid: b926e00d4e938ba40988496d3993b920, type: 3}
@@ -1294,4 +1299,5 @@ MonoBehaviour:
   nextRequestToFinish: {fileID: 0}
   requireItemCount: 1
   finishedItem: {fileID: 5204900826893708176}
-  unfinishedItem: {fileID: 0}
+  unfinishedItem: {fileID: 8012441959885622890}
+  rotateWhenSatisfied: 0
