@@ -27,18 +27,26 @@ public class GameManager : Singleton<GameManager>
             Restart();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (SceneManager.Instance.currentDay == 0 || SceneManager.Instance.currentDay > 3)
         {
-            if(ghostCamera.activeSelf)
+            
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                ghostCamera.SetActive(false);
-            }
+                if(ghostCamera.activeSelf)
+                {
+                    ghostCamera.SetActive(false);
+                }
 
-            else
-            {
-                ghostCamera.SetActive(true);
+                else
+                {
+                    ghostCamera.SetActive(true);
+                }
             }
         }
+        
     }
 
     public void Restart()
