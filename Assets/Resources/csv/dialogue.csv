@@ -48,8 +48,11 @@ mirrorWater,I should pick up a tissue to clean it up
 mirrorClean,AAAAAAA... a ghost
 tissueBox,Perfect to wipe off some stains
 spray,"Windows, mirrors... it cleans everything!"
-prelog5_ghost,Please help them move on
-prelog5_ghost,I can't do it on my own
+prelog5_ghost,Do you want to play ball one last time?
+prelog6_ghost,Good boy.
+prelog7_ghost,Please help them move on
+prelog7_ghost,I can't do it on my own
+prelog8_ghost,Thank you.
 prelog5_dog,^^
 tutorial_1,Left Click: Ghost interaction
 tutorial_2,Right Click: Dog interaction

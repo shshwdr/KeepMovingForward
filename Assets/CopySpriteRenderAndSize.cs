@@ -13,7 +13,7 @@ public class CopySpriteRenderAndSize : MonoBehaviour
         if (spriteRenderer != null)
         {
              spriteRenderer.sprite = spriteRendererCopiedFrom.sprite;
-             spriteRenderer.transform.localScale = spriteRendererCopiedFrom.transform.localScale * 1.1f;
+             spriteRenderer.transform.localScale = spriteRendererCopiedFrom.transform.localScale + new Vector3(0.1f,0.1f,0);
              spriteRenderer.sortingLayerID = spriteRendererCopiedFrom.sortingLayerID;
              spriteRenderer.sortingOrder = spriteRendererCopiedFrom.sortingOrder-10;
         }

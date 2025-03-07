@@ -32,6 +32,11 @@ public class Interactable : MonoBehaviour
 
     void OnMouseDown()
     {
+         
+        if (PlayPrelog.Instance.isPlayingPrelog)
+        {
+            return;
+        }
         if (IsPlayerCloseEnough())
         {
             Interact();

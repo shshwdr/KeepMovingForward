@@ -175,6 +175,10 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (PlayPrelog.Instance.isPlayingPrelog)
+        {
+            return;
+        }
         // Move character toward target
         if (isMoving)
         {

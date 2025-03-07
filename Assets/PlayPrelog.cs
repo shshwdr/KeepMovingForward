@@ -86,7 +86,21 @@ public class PlayPrelog : Singleton<PlayPrelog>
     {
         if (index < prelogList.Length)
         {
+
+            if (index == 4 && prelogList == this.prelogList)
+            {
+
+                dog.SetActive(true);
+            }
             
+            
+
+            if (index == prelogList.Length - 1 && prelogList == this.prelogList)
+            {
+                
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_pick_item");
+            }
+
             mouseClick = false;
             prelogList[index].SetActive(true);
             bool hasNextLine = true;
