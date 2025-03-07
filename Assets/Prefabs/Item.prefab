@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1737b9ea05bcdf489fae04fd96cc02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactDistance: 2
+  interactDistance: 10
   collider: {fileID: 0}
   name: ball
   actionName: 

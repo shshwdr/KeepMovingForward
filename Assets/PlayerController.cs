@@ -184,9 +184,15 @@ public class PlayerController : MonoBehaviour
             if (Vector2.Distance(transform.position, targetPosition) < stopDistance)
             {
                 isMoving = false;
-                
-                if (targetItem != null)
+            }
+
+            if (targetItem != null)
+            {
+                if (Vector2.Distance(targetItem.transform.position, transform.position)<2)
+                //if(targetItem.collider.bounds.Intersects(collider.bounds))
                 {
+                    isMoving = false;
+                    
                     dialogue.Show(targetItem.commentName);
                     targetItem.Interact();
 

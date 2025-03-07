@@ -177,16 +177,19 @@ public class DogClickController : MonoBehaviour
                 //isMoving = false;
                 animator.SetBool("walk",false);
                 isMoving = false;
-            
-                if (targetItem != null)
+            }
+
+            if (targetItem != null)
+            {
+                if (Vector2.Distance(targetItem.transform.position, collider.transform.position)<2)
+                //if(targetItem.collider.bounds.Intersects(collider.bounds))
                 {
-                    if (Vector2.Distance(targetItem.transform.position, collider.transform.position)<2)
-                    //if(targetItem.collider.bounds.Intersects(collider.bounds))
-                    {
-                        //isMoving = false; 
-                        targetItem.DogInteract(this);
-                        targetItem = null;
-                    }
+                    //isMoving = false;
+                    animator.SetBool("walk",false);
+                    isMoving = false;
+
+                    targetItem.DogInteract(this);
+                    targetItem = null;
                 }
             }
 

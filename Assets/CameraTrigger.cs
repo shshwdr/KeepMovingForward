@@ -11,12 +11,8 @@ public class CameraTrigger : MonoBehaviour
     {
         if(other.CompareTag("Dog"))
         {
-            myCamera.SetActive(true);
             otherCamera.SetActive(false);
-    
-            print("Damn");
+            myCamera.SetActive(true);
         }
-    
-        print("DAMNIT");
     }
 }

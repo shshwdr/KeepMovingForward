@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90935c90ddaa1d45bc0f94ac9847262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 7
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -289,6 +289,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   currentLayer: 0
   mouth: {fileID: 1670505438303306618}
+  startPosition: {x: 0, y: 0, z: 0}
   interactionTime: 0
   holdingItem: {fileID: 0}
   animator: {fileID: 0}
